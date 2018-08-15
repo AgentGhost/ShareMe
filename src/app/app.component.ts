@@ -10,33 +10,33 @@ import * as copyToClipboard from 'copy-to-clipboard';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  input = new FormControl('')
-  @ViewChild("inputElement") inputElement: ElementRef
-  songList: Lied[] = []
+  input = new FormControl('');
+  @ViewChild('inputElement') inputElement: ElementRef;
+  songList: Lied[] = [];
 
   ngOnInit() {
     this.input.valueChanges.pipe(
       // map(value => value.replace(/\D/g, "")),
       // tap(value => console.log(value)),
-    ).subscribe()
-    this.addSong("B101")
+    ).subscribe();
+    this.addSong('B101');
   }
 
   ngAfterViewInit() {
-    this.inputElement.nativeElement.focus()
+    this.inputElement.nativeElement.focus();
   }
 
   onKeydownEnter() {
-    const input = this.inputElement.nativeElement.value
-    this.addSong(input)
-    this.inputElement.nativeElement.value = ""
+    const input = this.inputElement.nativeElement.value;
+    this.addSong(input);
+    this.inputElement.nativeElement.value = '';
   }
 
   addSong(input: string) {
     const song = verzeichnis.find(L => {
-      return L.index.toLowerCase() === input.toLowerCase()
-    })
-    this.songList.push(song)
+      return L.index.toLowerCase() === input.toLowerCase();
+    });
+    this.songList.push(song);
   }
 
   // share() {
@@ -51,12 +51,12 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   copy() {
     const text = this.songList
-      .map(L => L.index + " " + L.name)
-      .join("\n")
-    copyToClipboard(text)
+      .map(L => L.index + ' ' + L.name)
+      .join('\n');
+    copyToClipboard(text);
   }
-  
-  remove(index:number) {
-    this.songList.splice(index, 1)
+
+  remove(index: number) {
+    this.songList.splice(index, 1);
   }
 }

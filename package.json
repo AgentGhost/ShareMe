@@ -22,6 +22,7 @@
     "@angular/router": "^6.1.0",
     "copy-to-clipboard": "^3.0.8",
     "core-js": "^2.5.4",
+    "normalize-scss": "^7.0.1",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },
