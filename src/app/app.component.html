@@ -1,7 +1,7 @@
 <div class="appname">ShareMe</div>
 <div class="authors">by M. J. Normann and A. Schilling</div>
 
-<input type="text" placeholder="Liednummer" [formControl]="input" (keydown.enter)="onKeydownEnter()" #inputElement>
+<input type="text" placeholder="Liednummer" (keydown.enter)="onKeydownEnter()" #inputElement>
 
 <div class="songs">
   <div class="song" *ngFor="let song of songList; index as i">

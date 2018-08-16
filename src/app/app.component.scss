@@ -37,7 +37,10 @@ input {
 
 .songs {
   flex: 1;
-  margin: 1rem 1rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .song {
@@ -60,6 +63,7 @@ input {
   cursor: pointer;
   transition: 0.15s ease-out;
   box-shadow: 0 1px 2px #eee;
+  margin-left: 0.5rem;
 
   &:focus {
     background-color: #eee;
@@ -75,7 +79,7 @@ input {
   cursor: pointer;
   transition: 0.15s ease-out;
   box-shadow: 0 1px 2px #ccc;
-  margin: 1.5rem 1rem;
+  margin: 0 1rem 1.5rem;
   text-transform: uppercase;
 
   &:focus {

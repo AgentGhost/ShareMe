@@ -1,26 +1,18 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { tap, map } from 'rxjs/operators';
-import { Lied, verzeichnis } from './verzeichnis';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+
 import * as copyToClipboard from 'copy-to-clipboard';
+
+import { Lied, verzeichnis } from './verzeichnis';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, AfterViewInit {
-  input = new FormControl('');
+export class AppComponent implements AfterViewInit {
+
   @ViewChild('inputElement') inputElement: ElementRef;
   songList: Lied[] = [];
-
-  ngOnInit() {
-    this.input.valueChanges.pipe(
-      // map(value => value.replace(/\D/g, "")),
-      // tap(value => console.log(value)),
-    ).subscribe();
-    this.addSong('101');
-  }
 
   ngAfterViewInit() {
     this.inputElement.nativeElement.focus();
@@ -35,11 +27,25 @@ export class AppComponent implements OnInit, AfterViewInit {
   addSong(input: string) {
     const inputLower = input.toLowerCase().trim();
     const songs = verzeichnis.filter(L => `${L.number}` === inputLower);
-    this.songList.push({
-      book: songs[0].book,
-      number: songs[0].number,
-      name: songs.map(s => s.name).join(' | '),
-    });
+
+    if (songs.length > 0) {
+      this.songList.push({
+        book: songs[0].book,
+        number: songs[0].number,
+        name: songs.map(s => s.name).join(' | '),
+      });
+    }
+  }
+
+  copy() {
+    const text = this.songList
+      .map(song => [song.book, song.number, song.name].join(' '))
+      .join('\n');
+    copyToClipboard(text);
+  }
+
+  remove(index: number) {
+    this.songList.splice(index, 1);
   }
 
   // share() {
@@ -52,14 +58,4 @@ export class AppComponent implements OnInit, AfterViewInit {
   //     .catch((error) => console.log('Error sharing', error));
   // }
 
-  copy() {
-    const text = this.songList
-      .map(song => [song.book, song.number, song.name].join(' '))
-      .join('\n');
-    copyToClipboard(text);
-  }
-
-  remove(index: number) {
-    this.songList.splice(index, 1);
-  }
 }
