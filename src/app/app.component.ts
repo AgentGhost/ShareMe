@@ -19,7 +19,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       // map(value => value.replace(/\D/g, "")),
       // tap(value => console.log(value)),
     ).subscribe();
-    this.addSong('B101');
+    this.addSong('101');
   }
 
   ngAfterViewInit() {
@@ -33,10 +33,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   addSong(input: string) {
-    const song = verzeichnis.find(L => {
-      return L.index.toLowerCase() === input.toLowerCase();
+    const inputLower = input.toLowerCase().trim();
+    const songs = verzeichnis.filter(L => `${L.number}` === inputLower);
+    this.songList.push({
+      book: songs[0].book,
+      number: songs[0].number,
+      name: songs.map(s => s.name).join(' | '),
     });
-    this.songList.push(song);
   }
 
   // share() {
@@ -51,7 +54,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   copy() {
     const text = this.songList
-      .map(L => L.index + ' ' + L.name)
+      .map(song => [song.book, song.number, song.name].join(' '))
       .join('\n');
     copyToClipboard(text);
   }

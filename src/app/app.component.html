@@ -5,7 +5,7 @@
 
 <div class="songs">
   <div class="song" *ngFor="let song of songList; index as i">
-    <div class="name">{{ song.index }} – {{ song.name }}</div>
+    <div class="name">{{ song.book }} {{ song.number }} – {{ song.name }}</div>
     <button class="remove" (click)="remove(i)">x</button>
   </div>
 </div>
