@@ -1,4 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-    box-sizing: border-box;
+
+@import "~normalize-scss/sass/normalize/import-now";
+@import url("https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: "Cabin Sketch", cursive;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font-family: "Fredericka the Great", cursive;
 }
