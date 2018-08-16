@@ -3,12 +3,12 @@
   <button class="clear" (click)="clear()">Clear</button>
 </div>
 
-<input type="text" placeholder="Liednummer (z.B. b137 / g14)" (keydown.enter)="onKeydownEnter()" #inputElement>
+<input type="text" placeholder="Liednummer (z.B. b137 / g10)" (keydown.enter)="onKeydownEnter()" #inputElement>
 
 <div class="songs">
   <div class="song" *ngFor="let song of songList; index as i">
     <div class="name">{{ song.book }} {{ song.number }} – {{ song.name }}</div>
-    <button class="remove" (click)="remove(i)">x</button>
+    <button class="remove" (click)="remove(i)">X</button>
   </div>
 </div>
 
