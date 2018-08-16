@@ -1,4 +1,8 @@
-# ShareMe
+<h1> ShareMe
+  <a href="https://app.netlify.com/sites/shareme/deploys">
+    <img src="https://img.shields.io/badge/netlify-shareme-00AD9F.svg?logo=netlify">
+  </a>
+</h1>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
 
