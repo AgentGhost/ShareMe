@@ -5,7 +5,7 @@ export interface Lied {
 }
 
 export const verzeichnis: Lied[] = [
-    // Ich will dir danken!
+    // Ich will dir danken! (g/G)
     { book: "Iwdd!", number: 1, name: "Heilig, heilig, heilig, Gott" },
     { book: "Iwdd!", number: 2, name: "Heilig, heilig, heilig ist der Herr" },
     { book: "Iwdd!", number: 3, name: "Unser Vater in dem Himmel" },
@@ -17,7 +17,7 @@ export const verzeichnis: Lied[] = [
     { book: "Iwdd!", number: 9, name: "Elshaddai, El Elyonna Adonai" },
     { book: "Iwdd!", number: 10, name: "Herr, du mein Gott, du bist gut!" },
     { book: "Iwdd!", number: 11, name: "O Gott, dir sei Ehre, der Großes getan!" },
-    // Loben
+    // Loben (b/B)
     { book: 'Loben', number: 1, name: 'Lobe den Herrn, meine Seele (I)' },
     { book: 'Loben', number: 2, name: 'Lobe den Herrn, meine Seele (II)' },
     { book: 'Loben', number: 3, name: 'Herr, dein Name sei erhöht' },

@@ -1,7 +1,9 @@
-<div class="appname">ShareMe</div>
-<div class="authors">by M. J. Normann and A. Schilling</div>
+<div class="header">
+  <div class="appname">ShareMe</div>
+  <button class="clear" (click)="clear()">Clear</button>
+</div>
 
-<input type="text" placeholder="Liednummer" (keydown.enter)="onKeydownEnter()" #inputElement>
+<input type="text" placeholder="Liednummer (z.B. b137 / g14)" (keydown.enter)="onKeydownEnter()" #inputElement>
 
 <div class="songs">
   <div class="song" *ngFor="let song of songList; index as i">

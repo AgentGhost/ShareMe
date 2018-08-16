@@ -26,7 +26,11 @@ export class AppComponent implements AfterViewInit {
 
   addSong(input: string) {
     const inputLower = input.toLowerCase().trim();
-    const songs = verzeichnis.filter(L => `${L.number}` === inputLower);
+    const map = {
+      "Loben": "b",
+      "Iwdd!": "g"
+    }
+    const songs = verzeichnis.filter(L => `${map[L.book]}${L.number}` === inputLower);
 
     if (songs.length > 0) {
       this.songList.push({
@@ -46,6 +50,10 @@ export class AppComponent implements AfterViewInit {
 
   remove(index: number) {
     this.songList.splice(index, 1);
+  }
+
+  clear() {
+    this.songList = [];
   }
 
   // share() {
