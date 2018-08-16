@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~normalize-scss/sass/normalize/import-now";
-@import url("https://fonts.googleapis.com/css?family=Cinzel");
+@import url("https://fonts.googleapis.com/css?family=Cinzel:400,700");
 
 html,
 body {
@@ -16,10 +16,15 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: "Cinzel", serif;
-  font-weight: 300;
+  font-family: "Cinzel", cursive;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 * {
   box-sizing: border-box;
+}
+
+button {
+  font-family: "Fredericka the Great", cursive;
 }

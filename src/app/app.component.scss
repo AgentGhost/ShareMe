@@ -8,7 +8,6 @@
   height: 54rem;
   max-width: 100vw;
   max-height: 100vh;
-  font-weight: 300;
 }
 
 .appname {
@@ -26,7 +25,6 @@ input {
   height: 3rem;
   padding: 0 0.5rem;
   font-size: 1rem;
-  font-weight: 300;
   outline: none;
   transition: 0.15s ease-out;
   margin: 0 1rem;
@@ -46,6 +44,7 @@ input {
   display: flex;
   align-items: center;
   min-height: 2.25rem;
+  font-weight: 700;
 }
 
 .name {
@@ -78,7 +77,6 @@ input {
   box-shadow: 0 1px 2px #ccc;
   margin: 1.5rem 1rem;
   text-transform: uppercase;
-  font-family: "Fredericka the Great", cursive;
 
   &:focus {
     background-color: crimson;
