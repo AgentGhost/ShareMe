@@ -1,6 +1,9 @@
 <h1> ShareMe
   <a href="https://app.netlify.com/sites/shareme/deploys">
-    <img src="https://img.shields.io/badge/netlify-shareme-00AD9F.svg?logo=netlify">
+    <img src="https://img.shields.io/badge/deploys-shareme-00AD9F.svg?logo=netlify">
+  </a>
+  <a href="https://shareme.netlify.com">
+    <img src="https://img.shields.io/badge/app-shareme-crimson.svg?logo=angular">
   </a>
 </h1>
 
