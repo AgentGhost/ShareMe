@@ -64,13 +64,13 @@ input {
   cursor: pointer;
   transition: 0.15s ease-out;
   box-shadow: 0 1px 2px #eee;
-  margin-left: 0.5rem;
+  margin-right: 1rem;
 }
 
 textarea {
   position: fixed;
   left: -100vw;
-  top: 0;  
+  top: 0;
 }
 
 .footer {
@@ -78,7 +78,9 @@ textarea {
   padding: 1rem 0.5rem;
 }
 
-.copy,.share,.clear {
+.copy,
+.share,
+.clear {
   flex: 1 1 0;
   height: 2.75rem;
   color: white;
@@ -89,18 +91,19 @@ textarea {
   margin: 0.5rem;
   transition: 0.15s ease-out;
   box-shadow: 0 1px 2px #ccc;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem;
   text-transform: uppercase;
-  
+
   &:active {
     background-color: crimson;
   }
 }
 
-.clear,.remove {
+.clear,
+.remove {
   color: white;
   background-color: crimson;
-  
+
   &:active {
     background-color: pink;
   }
