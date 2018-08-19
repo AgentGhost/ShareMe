@@ -24,7 +24,7 @@
 }
 
 input {
-  height: 3rem;
+  height: 3.5rem;
   padding: 0 0.5rem;
   font-size: 1rem;
   outline: none;
@@ -67,13 +67,26 @@ input {
   margin-left: 0.5rem;
 }
 
-.copy,.clear {
-  height: 2.5rem;
+textarea {
+  position: fixed;
+  left: -100vw;
+  top: 0;  
+}
+
+.footer {
+  display: flex;
+  padding: 1rem 0.5rem;
+}
+
+.copy,.share,.clear {
+  flex: 1 1 0;
+  height: 2.75rem;
   color: white;
   outline: none;
   border: none;
   background-color: black;
   cursor: pointer;
+  margin: 0.5rem;
   transition: 0.15s ease-out;
   box-shadow: 0 1px 2px #ccc;
   padding: 0.5rem 2rem;
@@ -91,8 +104,4 @@ input {
   &:active {
     background-color: pink;
   }
-}
-
-.copy {
-  margin: 0 1rem 1.5rem;
 }

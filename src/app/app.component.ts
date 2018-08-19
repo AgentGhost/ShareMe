@@ -1,7 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 
-import * as copyToClipboard from 'copy-to-clipboard';
-
 import { Lied, verzeichnis } from './verzeichnis';
 
 @Component({
@@ -11,26 +9,31 @@ import { Lied, verzeichnis } from './verzeichnis';
 })
 export class AppComponent implements AfterViewInit {
 
-  @ViewChild('inputElement') inputElement: ElementRef;
-  songList: Lied[] = [];
+  @ViewChild('inputElement') inputElement: ElementRef
+  songList: Lied[] = []
+
+  @ViewChild('textareaElement') textareaElement: ElementRef
+
+  isCopySupported = document.queryCommandSupported && document.queryCommandSupported('copy')
+  isShareSupported = !!navigator['share']
 
   ngAfterViewInit() {
-    this.inputElement.nativeElement.focus();
+    this.inputElement.nativeElement.focus()
   }
 
   onKeydownEnter() {
-    const input = this.inputElement.nativeElement.value;
-    this.addSong(input);
-    this.inputElement.nativeElement.value = '';
+    const input = this.inputElement.nativeElement.value
+    this.addSong(input)
+    this.inputElement.nativeElement.value = ''
   }
 
   addSong(input: string) {
-    const inputLower = input.toLowerCase().trim();
+    const inputLower = input.toLowerCase().trim()
     const map = {
       "Loben": "b",
       "Iwdd!": "g"
     }
-    const songs = verzeichnis.filter(L => `${map[L.book]}${L.number}` === inputLower);
+    const songs = verzeichnis.filter(L => `${map[L.book]}${L.number}` === inputLower)
 
     if (songs.length > 0) {
       this.songList.push({
@@ -41,29 +44,40 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
-  copy() {
+  mark() {
     const text = this.songList
-      .map(song => [song.book, song.number, song.name].join(' '))
-      .join('\n');
-    copyToClipboard(text);
+      .map(song => [song.book, song.number, '-', song.name].join(' '))
+      .join('\n')
+    return text
+  }
+
+  copy() {
+    try {
+      const textarea = this.textareaElement.nativeElement
+      textarea.value = this.mark()
+      textarea.select()
+      document.execCommand('copy')
+      console.log('Successful copy')
+    } catch (error) {
+      console.log('Error copying', error)
+    }
   }
 
   remove(index: number) {
-    this.songList.splice(index, 1);
+    this.songList.splice(index, 1)
   }
 
   clear() {
-    this.songList = [];
+    this.songList = []
   }
 
-  // share() {
-  //   navigator['share']({
-  //     title: 'Web Fundamentals',
-  //     text: 'Check out Web Fundamentals — it rocks!',
-  //     url: 'https://developers.google.com/web',
-  //   })
-  //     .then(() => console.log('Successful share'))
-  //     .catch((error) => console.log('Error sharing', error));
-  // }
-
+  share() {
+    navigator['share']({
+      // title: 'Web Fundamentals',
+      text: this.mark(),
+      // url: 'https://developers.google.com/web',
+    })
+      .then(() => console.log('Successful share'))
+      .catch((error) => console.log('Error sharing', error))
+  }
 }
