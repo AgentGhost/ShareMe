@@ -1,12 +1,17 @@
 :host {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 0.5rem;
+}
+
+.button-group {
   display: flex;
-  padding: 0.5rem 0.5rem;
 }
 
 .copy,
 .share,
 .clear {
-  flex: 1 1 0;
+  flex: 1;
   height: 2.75rem;
   color: white;
   outline: none;
@@ -25,8 +30,6 @@
 }
 
 .clear {
-  flex: 0 0 33%;
-
   color: white;
   background-color: crimson;
 
