@@ -1,6 +1,12 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 
-import { Lied, verzeichnis } from './verzeichnis';
+import { contents, Content, Song } from './contents/Contents';
+
+interface Output {
+  book: string
+  number: number
+  name: string
+}
 
 @Component({
   selector: 'app-root',
@@ -10,8 +16,7 @@ import { Lied, verzeichnis } from './verzeichnis';
 export class AppComponent implements AfterViewInit {
 
   @ViewChild('inputElement') inputElement: ElementRef
-  songList: Lied[] = []
-
+  
   @ViewChild('textareaElement') textareaElement: ElementRef
 
   isCopySupported = document.queryCommandSupported && document.queryCommandSupported('copy')
@@ -27,21 +32,22 @@ export class AppComponent implements AfterViewInit {
     this.inputElement.nativeElement.value = ''
   }
 
+  songList: Output[] = []
+
   addSong(input: string) {
     const inputLower = input.toLowerCase().trim()
-    const map = {
-      "Loben": "b",
-      "Iwdd!": "g"
-    }
-    const songs = verzeichnis.filter(L => `${map[L.book]}${L.number}` === inputLower)
-
-    if (songs.length > 0) {
-      this.songList.push({
-        book: songs[0].book,
-        number: songs[0].number,
-        name: songs.map(s => s.name).join(' | '),
-      });
-    }
+    const songArrays = contents.map(content => {
+      const songs = content.songs.filter(song => {
+          return `${content.qualifier}${song.number}` === inputLower 
+        })
+        if (songs.length > 0) {
+          this.songList.push({
+            book: content.short,
+            number: songs[0].number,
+            name: songs.map(s => s.name).join(' | '),
+          });
+        }
+    })   
   }
 
   mark() {
