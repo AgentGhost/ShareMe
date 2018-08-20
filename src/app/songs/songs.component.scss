@@ -1,0 +1,35 @@
+:host {
+  flex: 1;
+  margin: 1rem 0;
+  padding: 0 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  min-height: 2.25rem;
+  font-weight: 700;
+}
+
+.name {
+  flex: 1;
+}
+
+.remove {
+  width: 1.75rem;
+  height: 1.75rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.15s ease-out;
+  box-shadow: 0 1px 2px #eee;
+  margin-right: 1rem;
+  color: white;
+  background-color: crimson;
+
+  &:active {
+    background-color: pink;
+  }
+}

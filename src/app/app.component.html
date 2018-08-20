@@ -1,20 +1,4 @@
-<div class="header">
-  <div class="appname">ShareMe</div>
-</div>
-
-<input type="text" placeholder="Liednummer (z.B. b137 / g10)" (keydown.enter)="onKeydownEnter()" #inputElement>
-
-<div class="songs">
-  <div class="song" *ngFor="let song of songList; index as i">
-    <button class="remove" (click)="remove(i)">X</button>
-    <div class="name">{{ song.book }} {{ song.number }} – {{ song.name }}</div>
-  </div>
-</div>
-
-<textarea tabindex="-1" #textareaElement></textarea>
-
-<div class="footer">
-  <button type="button" class="clear" (click)="clear()">Clear</button>
-  <button type="button" class="share" (click)="share()" *ngIf="isShareSupported">Share</button>
-  <button type="button" class="copy" (click)="copy()" *ngIf="isCopySupported">Copy</button>
-</div>
+<app-header></app-header>
+<app-search></app-search>
+<app-songs></app-songs>
+<app-buttons></app-buttons>

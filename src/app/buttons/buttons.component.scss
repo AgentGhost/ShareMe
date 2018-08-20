@@ -1,0 +1,42 @@
+:host {
+  display: flex;
+  padding: 1rem 0.5rem;
+}
+
+.copy,
+.share,
+.clear {
+  flex: 1 1 0;
+  height: 2.75rem;
+  color: white;
+  outline: none;
+  border: none;
+  background-color: black;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition: 0.15s ease-out;
+  box-shadow: 0 1px 2px #ccc;
+  padding: 0.5rem;
+  text-transform: uppercase;
+
+  &:active {
+    background-color: crimson;
+  }
+}
+
+.clear {
+  flex: 0 0 33%;
+
+  color: white;
+  background-color: crimson;
+
+  &:active {
+    background-color: pink;
+  }
+}
+
+textarea {
+  position: fixed;
+  left: -100vw;
+  top: 0;
+}
