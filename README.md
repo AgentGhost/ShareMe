@@ -1,9 +1,12 @@
 <h1> ShareMe
+  <a href="https://travis-ci.com/AgentGhost/ShareMe">
+    <img alt="Build Status" src="https://travis-ci.com/AgentGhost/ShareMe.svg?branch=master">
+  </a>
   <a href="https://app.netlify.com/sites/shareme/deploys">
-    <img src="https://img.shields.io/badge/deploys-shareme-00AD9F.svg?logo=netlify">
+    <img alt="Netlify Deploys" src="https://img.shields.io/badge/deploys-shareme-00AD9F.svg?logo=netlify">
   </a>
   <a href="https://shareme.netlify.com">
-    <img src="https://img.shields.io/badge/app-shareme-crimson.svg?logo=angular">
+    <img alt="App" src="https://img.shields.io/badge/app-shareme-crimson.svg?logo=angular">
   </a>
 </h1>
 
