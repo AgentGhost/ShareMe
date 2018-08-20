@@ -5,7 +5,7 @@ import { SonglistService } from "./songlist.service"
 describe("SonglistService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SonglistService]
+      providers: [SonglistService],
     })
   })
 

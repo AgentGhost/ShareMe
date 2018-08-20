@@ -432,5 +432,5 @@ export const Loben: Song[] = [
     { number: 362, name: "Lob, meine Seel, den Herrn" },
     { number: 363, name: "Gegen den Strom!" },
     { number: 364, name: "Ich weiß nicht" },
-    { number: 365, name: "Jesus lebt! Er hat gesiegt (2 Liedsätze)" }
+    { number: 365, name: "Jesus lebt! Er hat gesiegt (2 Liedsätze)" },
 ]

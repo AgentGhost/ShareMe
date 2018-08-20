@@ -1,14 +1,15 @@
 {
-  "rulesDirectory": ["node_modules/codelyzer"],
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
     "comment-format": [true, "check-space"],
+    "component-class-suffix": true,
     "curly": true,
     "deprecation": {
       "severity": "warn"
     },
+    "directive-class-suffix": true,
     "eofline": true,
     "forin": true,
     "import-blacklist": [true, "rxjs/Rx"],
@@ -39,8 +40,11 @@
     "no-empty-interface": true,
     "no-eval": true,
     "no-inferrable-types": [true, "ignore-params"],
+    "no-input-rename": true,
     "no-misused-new": true,
     "no-non-null-assertion": true,
+    "no-output-on-prefix": true,
+    "no-output-rename": true,
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-string-throw": true,
@@ -62,6 +66,13 @@
     "quotemark": [true, "double"],
     "radix": true,
     "semicolon": [true, "never"],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
     "triple-equals": [true, "allow-null-check"],
     "typedef-whitespace": [
       true,
@@ -74,6 +85,11 @@
       }
     ],
     "unified-signatures": true,
+    "use-host-property-decorator": true,
+    "use-input-property-decorator": true,
+    "use-life-cycle-interface": true,
+    "use-output-property-decorator": true,
+    "use-pipe-transform-interface": true,
     "variable-name": false,
     "whitespace": [
       true,
@@ -82,16 +98,7 @@
       "check-operator",
       "check-separator",
       "check-type"
-    ],
-    "no-output-on-prefix": true,
-    "use-input-property-decorator": true,
-    "use-output-property-decorator": true,
-    "use-host-property-decorator": true,
-    "no-input-rename": true,
-    "no-output-rename": true,
-    "use-life-cycle-interface": true,
-    "use-pipe-transform-interface": true,
-    "component-class-suffix": true,
-    "directive-class-suffix": true
-  }
+    ]
+  },
+  "rulesDirectory": ["node_modules/codelyzer"]
 }

@@ -541,5 +541,5 @@ export const Iwdd: Song[] = [
     { number: 460, name: "Wie groß ist mein Gott, kein andrer wie er" },
     { number: 461, name: "Ja, das ist Freude" },
     { number: 462, name: "Es gibt jemand, der deine Lasten kennt" },
-    { number: 463, name: "Wenn ich bedenke, was der Herr getan" }
+    { number: 463, name: "Wenn ich bedenke, was der Herr getan" },
 ]

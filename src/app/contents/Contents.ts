@@ -16,5 +16,5 @@ import { Loben } from "./Loben"
 
 export const contents: Content[] = [
   { qualifier: "g", book: "Ich will dir danken!", short: "Iwdd!", publisher: "Hänssler-Verlag, Bundes-Verlag", songs: Iwdd },
-  { qualifier: "b", book: "Loben - Lieder der Hoffnung", short: "Loben", publisher: "CLV", songs: Loben }
+  { qualifier: "b", book: "Loben - Lieder der Hoffnung", short: "Loben", publisher: "CLV", songs: Loben },
 ]

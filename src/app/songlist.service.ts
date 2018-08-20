@@ -9,7 +9,7 @@ export interface Output {
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class SonglistService {
 

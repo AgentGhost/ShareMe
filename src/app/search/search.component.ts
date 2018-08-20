@@ -6,7 +6,7 @@ import { SonglistService } from "src/app/songlist.service"
 @Component({
   selector: "app-search",
   templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.scss"]
+  styleUrls: ["./search.component.scss"],
 })
 export class SearchComponent implements AfterViewInit {
 
