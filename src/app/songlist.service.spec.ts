@@ -1,15 +1,15 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject } from "@angular/core/testing"
 
-import { SonglistService } from './songlist.service';
+import { SonglistService } from "./songlist.service"
 
-describe('SonglistService', () => {
+describe("SonglistService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [SonglistService]
-    });
-  });
+    })
+  })
 
-  it('should be created', inject([SonglistService], (service: SonglistService) => {
-    expect(service).toBeTruthy();
-  }));
-});
+  it("should be created", inject([SonglistService], (service: SonglistService) => {
+    expect(service).toBeTruthy()
+  }))
+})
