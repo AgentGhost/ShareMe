@@ -1,27 +1,27 @@
-import { TestBed, async } from "@angular/core/testing"
+import { async, TestBed } from "@angular/core/testing"
+
 import { AppComponent } from "./app.component"
+import { ButtonsComponent } from "./buttons/buttons.component"
+import { HeaderComponent } from "./header/header.component"
+import { SearchComponent } from "./search/search.component"
+import { SongsComponent } from "./songs/songs.component"
+
 describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
+        ButtonsComponent,
+        SongsComponent,
+        SearchComponent,
+        HeaderComponent,
       ],
     }).compileComponents()
   }))
+
   it("should create the app", async(() => {
     const fixture = TestBed.createComponent(AppComponent)
     const app = fixture.debugElement.componentInstance
     expect(app).toBeTruthy()
-  }))
-  it(`should have as title 'ShareMe'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.debugElement.componentInstance
-    expect(app.title).toEqual("ShareMe")
-  }))
-  it("should render title in a h1 tag", async(() => {
-    const fixture = TestBed.createComponent(AppComponent)
-    fixture.detectChanges()
-    const compiled = fixture.debugElement.nativeElement
-    expect(compiled.querySelector("h1").textContent).toContain("Welcome to ShareMe!")
   }))
 })
