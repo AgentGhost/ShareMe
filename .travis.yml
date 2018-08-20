@@ -20,6 +20,7 @@ install:
   - yarn --frozen-lockfile
 
 script:
-  - yarn build -c production
+  - yarn lint --configuration ci
+  - yarn build --configuration production
   - yarn test --watch false --progress false --browsers ChromeHeadlessCI
   - yarn e2e --protractor-config ./e2e/protractor-ci.conf.js
