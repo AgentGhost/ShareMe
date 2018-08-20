@@ -3,22 +3,22 @@ import {
   Component,
   ElementRef,
   ViewChild,
-} from '@angular/core';
+} from "@angular/core"
 
-import { SonglistService } from 'src/app/songlist.service';
+import { SonglistService } from "src/app/songlist.service"
 
 @Component({
-  selector: 'app-buttons',
-  templateUrl: './buttons.component.html',
-  styleUrls: ['./buttons.component.scss'],
+  selector: "app-buttons",
+  templateUrl: "./buttons.component.html",
+  styleUrls: ["./buttons.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonsComponent {
 
-  @ViewChild('textareaElement') textareaElement: ElementRef;
+  @ViewChild("textareaElement") textareaElement: ElementRef
 
-  isCopySupported = document.queryCommandSupported && document.queryCommandSupported('copy');
-  isShareSupported = !!navigator['share'];
+  isCopySupported = document.queryCommandSupported && document.queryCommandSupported("copy")
+  isShareSupported = !!navigator["share"]
 
   constructor(
     private songlist: SonglistService,
@@ -26,35 +26,35 @@ export class ButtonsComponent {
 
   mark() {
     const text = this.songlist.output
-      .map(song => [song.book, song.number, '-', song.name].join(' '))
-      .join('\n');
-    return text;
+      .map(song => [song.book, song.number, "-", song.name].join(" "))
+      .join("\n")
+    return text
   }
 
   copy() {
     try {
-      const textarea = this.textareaElement.nativeElement;
-      textarea.value = this.mark();
-      textarea.select();
-      document.execCommand('copy');
-      console.log('Successful copy');
+      const textarea = this.textareaElement.nativeElement
+      textarea.value = this.mark()
+      textarea.select()
+      document.execCommand("copy")
+      console.log("Successful copy")
     } catch (error) {
-      console.log('Error copying', error);
+      console.log("Error copying", error)
     }
   }
 
   clear() {
-    this.songlist.clear();
+    this.songlist.clear()
   }
 
   share() {
-    navigator['share']({
+    navigator["share"]({
       // title: 'Web Fundamentals',
       text: this.mark(),
       // url: 'https://developers.google.com/web',
     })
-      .then(() => console.log('Successful share'))
-      .catch((error) => console.log('Error sharing', error));
+      .then(() => console.log("Successful share"))
+      .catch((error) => console.log("Error sharing", error))
   }
 
 }
