@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 
+import { contents } from 'src/app/contents/Contents';
 import { SonglistService } from 'src/app/songlist.service';
-import { verzeichnis } from 'src/app/verzeichnis';
 
 @Component({
   selector: 'app-search',
@@ -28,19 +28,20 @@ export class SearchComponent implements AfterViewInit {
 
   addSong(input: string) {
     const inputLower = input.toLowerCase().trim();
-    const map = {
-      'Loben': 'b',
-      'Iwdd!': 'g'
-    };
-    const songs = verzeichnis.filter(L => `${map[L.book]}${L.number}` === inputLower);
 
-    if (songs.length > 0) {
-      this.songlist.add({
-        book: songs[0].book,
-        number: songs[0].number,
-        name: songs.map(s => s.name).join(' | '),
+    contents.forEach(content => {
+      const songs = content.songs.filter(song => {
+        return `${content.qualifier}${song.number}` === inputLower;
       });
-    }
+
+      if (songs.length > 0) {
+        this.songlist.add({
+          book: content.short,
+          number: songs[0].number,
+          name: songs.map(s => s.name).join(' | '),
+        });
+      }
+    });
   }
 
 }

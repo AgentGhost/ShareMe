@@ -25,7 +25,7 @@ export class ButtonsComponent {
   ) { }
 
   mark() {
-    const text = this.songlist.songs
+    const text = this.songlist.output
       .map(song => [song.book, song.number, '-', song.name].join(' '))
       .join('\n');
     return text;

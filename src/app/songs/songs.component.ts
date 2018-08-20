@@ -9,6 +9,8 @@ import { SonglistService } from 'src/app/songlist.service';
 })
 export class SongsComponent {
 
+  songs = this.songlist.observe();
+
   constructor(
     private songlist: SonglistService,
   ) { }

@@ -24,18 +24,15 @@
   }
 }
 
-.clear,
-.remove {
+.clear {
+  flex: 0 0 33%;
+
   color: white;
   background-color: crimson;
 
   &:active {
     background-color: pink;
   }
-}
-
-.clear {
-  flex: 0 0 33%;
 }
 
 textarea {
