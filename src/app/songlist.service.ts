@@ -16,6 +16,20 @@ export class SonglistService {
   private list: Output[] = []
   private subject = new ReplaySubject<Output[]>(1)
 
+  constructor() {
+    const restored = window.localStorage.getItem("songlist")
+    if (restored) {
+      this.list = JSON.parse(restored)
+    } else {
+      this.list = []
+    }
+    this.emit()
+    this.observe().subscribe(list => {
+      const updated = JSON.stringify(list)
+      window.localStorage.setItem("songlist", updated)
+    })
+  }
+
   get output(): Output[] {
     return [...this.list]
   }
