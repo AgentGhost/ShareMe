@@ -1,4 +1,13 @@
-<h1> ShareMe
+<h1 align="center">
+  <img alt="Logo" src="https://image.flaticon.com/icons/svg/1058/1058102.svg" height="48">
+  ShareMe
+</h1>
+
+<p align="center">
+  An app for quickly searching and sharing songs
+</p>
+
+<p align="center">
   <a href="https://travis-ci.com/AgentGhost/ShareMe">
     <img alt="Build Status" src="https://travis-ci.com/AgentGhost/ShareMe.svg?branch=master">
   </a>
@@ -8,7 +17,9 @@
   <a href="https://shareme.netlify.com">
     <img alt="App" src="https://img.shields.io/badge/app-shareme-crimson.svg?logo=angular">
   </a>
-</h1>
+</p>
+
+# Devs
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
 
