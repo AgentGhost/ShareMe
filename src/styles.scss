@@ -33,4 +33,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  .material-icons {
+    margin-right: 0.25em;
+  }
 }
