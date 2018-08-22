@@ -3,6 +3,7 @@
 @import "~normalize-scss/sass/normalize/import-now";
 @import url("https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700");
 @import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 html,
 body {
@@ -29,4 +30,7 @@ textarea {
 
 button {
   font-family: "Fredericka the Great", cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
