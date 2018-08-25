@@ -53,11 +53,7 @@ export class ButtonsComponent {
   }
 
   share() {
-    navigator["share"]({
-      // title: 'Web Fundamentals',
-      text: this.mark(),
-      // url: 'https://developers.google.com/web',
-    })
+    navigator["share"]({ text: this.mark() })
       .then(() => console.log("Successful share"))
       .catch((error) => console.log("Error sharing", error))
   }
