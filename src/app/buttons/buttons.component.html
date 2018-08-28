@@ -1,12 +1,12 @@
-<button type="button" class="clear" (click)="clear()">
+<ng-container *ngIf="songs | async as songs">
+
+<button type="button" class="clear" (click)="clear()" [class.disabled]="!songs.length">
   <i class="material-icons">delete_outline</i>
-  <ng-container *ngIf="songs | async as songs">
-    <span *ngIf="!songs.length">Clear</span>
-    <span *ngIf="songs.length">( {{ songs.length }} )</span>
-  </ng-container>
+  <span *ngIf="!songs.length">Clear</span>
+  <span *ngIf="songs.length">( {{ songs.length }} )</span>
 </button>
 
-<div class="button-group">
+<div class="button-group" [class.disabled]="!songs.length">
   <button type="button" class="share" (click)="share()" *ngIf="isShareSupported">
     <i class="material-icons">share</i>Share
   </button>
@@ -16,3 +16,5 @@
 </div>
 
 <textarea tabindex="-1" #textareaElement></textarea>
+
+</ng-container>
