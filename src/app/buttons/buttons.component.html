@@ -1,5 +1,9 @@
 <button type="button" class="clear" (click)="clear()">
-  <i class="material-icons">delete_outline</i> ({{ numSongs | async }})
+  <i class="material-icons">delete_outline</i>
+  <ng-container *ngIf="numSongs | async as num">
+    <span *ngIf="num == 0">Clear</span>
+    <span *ngIf="num > 0">({{ num }})</span>
+  </ng-container>
 </button>
 
 <div class="button-group">
