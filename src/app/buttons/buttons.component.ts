@@ -5,6 +5,8 @@ import {
   ViewChild,
 } from "@angular/core"
 
+import { map } from "rxjs/operators"
+
 import { SonglistService } from "src/app/songlist.service"
 
 @Component({
@@ -17,8 +19,11 @@ export class ButtonsComponent {
 
   @ViewChild("textareaElement") textareaElement: ElementRef
 
-  isCopySupported = document.queryCommandSupported && document.queryCommandSupported("copy")
-  isShareSupported = !!navigator["share"]
+  readonly isCopySupported = document.queryCommandSupported && document.queryCommandSupported("copy")
+  readonly isShareSupported = !!navigator["share"]
+  readonly numSongs = this.songlist.observe().pipe(
+    map(list => list.length),
+  )
 
   constructor(
     private songlist: SonglistService,
@@ -48,11 +53,7 @@ export class ButtonsComponent {
   }
 
   share() {
-    navigator["share"]({
-      // title: 'Web Fundamentals',
-      text: this.mark(),
-      // url: 'https://developers.google.com/web',
-    })
+    navigator["share"]({ text: this.mark() })
       .then(() => console.log("Successful share"))
       .catch((error) => console.log("Error sharing", error))
   }
