@@ -1,8 +1,8 @@
 <button type="button" class="clear" (click)="clear()">
   <i class="material-icons">delete_outline</i>
-  <ng-container *ngIf="numSongs | async as num">
-    <span *ngIf="num == 0">Clear</span>
-    <span *ngIf="num > 0">({{ num }})</span>
+  <ng-container *ngIf="songs | async as songs">
+    <span *ngIf="!songs.length">Clear</span>
+    <span *ngIf="songs.length">( {{ songs.length }} )</span>
   </ng-container>
 </button>
 

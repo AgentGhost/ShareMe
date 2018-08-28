@@ -5,8 +5,6 @@ import {
   ViewChild,
 } from "@angular/core"
 
-import { map } from "rxjs/operators"
-
 import { SonglistService } from "src/app/songlist.service"
 
 @Component({
@@ -21,9 +19,7 @@ export class ButtonsComponent {
 
   readonly isCopySupported = document.queryCommandSupported && document.queryCommandSupported("copy")
   readonly isShareSupported = !!navigator["share"]
-  readonly numSongs = this.songlist.observe().pipe(
-    map(list => list.length),
-  )
+  readonly songs = this.songlist.observe()
 
   constructor(
     private songlist: SonglistService,
