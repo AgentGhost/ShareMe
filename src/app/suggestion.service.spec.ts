@@ -85,7 +85,11 @@ fdescribe("Suchvorschläge", () => {
     })
 
     it("Teilweise Treffer werden aufgelistet", () => {
-      expect(search("g46").length).toEqual(5)
+      const results = search("g46")
+      const expected: Output[] = [
+        iwdd(46), iwdd(460), iwdd(461), iwdd(462), iwdd(463),
+      ]
+      expect(results).toEqual(expected)
     })
 
     it("Genaue Treffer stehen oben", () => {
@@ -138,15 +142,7 @@ fdescribe("Suchvorschläge", () => {
         loben("Gott gibt Mut zum Leben"),
         iwdd("Steht auf und lobt unsern Gott"),
       ]
-      const notExpected = [
-        iwdd("Holy, holy, holy! Lord God Almighty"),
-      ]
       expect(results).toEqual(jasmine.arrayContaining(expected))
-      expect(results).not.toEqual(jasmine.arrayContaining(notExpected))
-    })
-
-    it("...spätestens das dritte vierte oder x-te Zeichen wieder keine Zahl ist (z.B. 'b34g' oder 'g104&')", () => {
-      // Ich glaube, den Fall gibt's nicht.
     })
 
   })
