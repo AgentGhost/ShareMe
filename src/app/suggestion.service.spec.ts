@@ -69,6 +69,18 @@ fdescribe("Suchvorschläge", () => {
       expect(results).toEqual(expected)
     })
 
+    it("Klammern", () => {
+      const results = search("(2 ")
+      const expected = [
+        loben("Du gibst das Leben (2 Liedsätze)"),
+      ]
+      const notExpected = [
+        loben("Lobe den Herrn, meine Seele (II)"), // = Loben(2)
+      ]
+      expect(results).toEqual(jasmine.arrayContaining(expected))
+      expect(results).not.toEqual(jasmine.arrayContaining(notExpected))
+    })
+
   })
 
   describe("Spezielles Suchverhalten", () => {
