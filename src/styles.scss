@@ -34,13 +34,36 @@ button {
   align-items: center;
   justify-content: center;
   user-select: none;
+  transition: ease-out .2s;
+  position: relative;
+ 
+  &::after {
+    opacity: 0;
+    transition: ease-out .2s;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    $bop: .5;
+    background-image: repeating-linear-gradient(100deg, 
+    rgba(#ccc,$bop), 
+    rgba(#ccc,$bop) 30px, 
+    rgba(#dbdbdb,$bop) 30px, 
+    rgba(#dbdbdb,$bop) 60px);
+  }
+  
+  &.disabled {
+    pointer-events: none;
+    
+    &::after {
+      opacity: 1;
+    }
+  }
 
   .material-icons {
     margin-right: 0.25em;
   }
 }
 
-.disabled {
-  pointer-events: none;
-  opacity: .5;
-}
