@@ -36,6 +36,10 @@ button {
   user-select: none;
   transition: ease-out .2s;
   position: relative;
+
+  &:active {
+    opacity: .75;
+  }
  
   &::after {
     opacity: 0;
@@ -56,7 +60,7 @@ button {
   
   &.disabled {
     pointer-events: none;
-    
+
     &::after {
       opacity: 1;
     }
