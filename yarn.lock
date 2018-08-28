@@ -90,11 +90,27 @@
     rxjs "^6.0.0"
     source-map "^0.5.6"
 
+"@angular-devkit/core@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmjs.org/@angular-devkit/core/-/core-0.7.5.tgz#49f7854ccadf3ddda8d0ea4359543a1cbdc6854d"
+  dependencies:
+    ajv "~6.4.0"
+    chokidar "^2.0.3"
+    rxjs "^6.0.0"
+    source-map "^0.5.6"
+
 "@angular-devkit/schematics@0.7.4":
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-0.7.4.tgz#18d7a58ab67acab4b6f404bd65e8765a581307ed"
   dependencies:
     "@angular-devkit/core" "0.7.4"
+    rxjs "^6.0.0"
+
+"@angular-devkit/schematics@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmjs.org/@angular-devkit/schematics/-/schematics-0.7.5.tgz#f46b121f29cb40ad6095285d27a515114a56c5d6"
+  dependencies:
+    "@angular-devkit/core" "0.7.5"
     rxjs "^6.0.0"
 
 "@angular/animations@^6.1.0":
@@ -173,9 +189,24 @@
   dependencies:
     tslib "^1.9.0"
 
+"@angular/pwa@^0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmjs.org/@angular/pwa/-/pwa-0.7.5.tgz#cdc7ea0352d3fa1a743b64da3fca85bc70154349"
+  dependencies:
+    "@angular-devkit/core" "0.7.5"
+    "@angular-devkit/schematics" "0.7.5"
+    "@schematics/angular" "0.7.5"
+    typescript "~2.6.2"
+
 "@angular/router@^6.1.0":
   version "6.1.3"
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-6.1.3.tgz#c11d4b9a9bfaa21d11c2464c82639f6dac3e8170"
+  dependencies:
+    tslib "^1.9.0"
+
+"@angular/service-worker@^6.1.0":
+  version "6.1.4"
+  resolved "https://registry.npmjs.org/@angular/service-worker/-/service-worker-6.1.4.tgz#54599a2c033f72c27471b6a5495b2488c9fea55f"
   dependencies:
     tslib "^1.9.0"
 
@@ -194,6 +225,14 @@
   dependencies:
     "@angular-devkit/core" "0.7.4"
     "@angular-devkit/schematics" "0.7.4"
+    typescript ">=2.6.2 <2.10"
+
+"@schematics/angular@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmjs.org/@schematics/angular/-/angular-0.7.5.tgz#ccb5ce587161b24042195e100be556ae19b3b7f6"
+  dependencies:
+    "@angular-devkit/core" "0.7.5"
+    "@angular-devkit/schematics" "0.7.5"
     typescript ">=2.6.2 <2.10"
 
 "@schematics/update@0.7.4":
@@ -5897,6 +5936,10 @@ typedarray@^0.0.6:
 "typescript@>=2.6.2 <2.10", typescript@~2.9.1:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
+
+typescript@~2.6.2:
+  version "2.6.2"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
 
 typescript@~2.7.2:
   version "2.7.2"
