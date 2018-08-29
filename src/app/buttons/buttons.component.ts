@@ -17,8 +17,9 @@ export class ButtonsComponent {
 
   @ViewChild("textareaElement") textareaElement: ElementRef
 
-  isCopySupported = document.queryCommandSupported && document.queryCommandSupported("copy")
-  isShareSupported = !!navigator["share"]
+  readonly isCopySupported = document.queryCommandSupported && document.queryCommandSupported("copy")
+  readonly isShareSupported = !!navigator["share"]
+  readonly songs = this.songlist.observe()
 
   constructor(
     private songlist: SonglistService,
@@ -48,11 +49,7 @@ export class ButtonsComponent {
   }
 
   share() {
-    navigator["share"]({
-      // title: 'Web Fundamentals',
-      text: this.mark(),
-      // url: 'https://developers.google.com/web',
-    })
+    navigator["share"]({ text: this.mark() })
       .then(() => console.log("Successful share"))
       .catch((error) => console.log("Error sharing", error))
   }

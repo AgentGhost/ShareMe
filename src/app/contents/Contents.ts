@@ -1,3 +1,6 @@
+import { Iwdd } from "./Iwdd"
+import { Loben } from "./Loben"
+
 export interface Song {
   number: number
   name: string
@@ -11,10 +14,19 @@ export interface Content {
   songs: Song[]
 }
 
-import { Iwdd } from "./Iwdd"
-import { Loben } from "./Loben"
-
 export const contents: Content[] = [
-  { qualifier: "g", book: "Ich will dir danken!", short: "Iwdd!", publisher: "Hänssler-Verlag, Bundes-Verlag", songs: Iwdd },
-  { qualifier: "b", book: "Loben - Lieder der Hoffnung", short: "Loben", publisher: "CLV", songs: Loben },
+  {
+    qualifier: "g",
+    book: "Ich will dir danken!",
+    short: "Iwdd!",
+    publisher: "Hänssler-Verlag, Bundes-Verlag",
+    songs: Iwdd,
+  },
+  {
+    qualifier: "b",
+    book: "Loben - Lieder der Hoffnung",
+    short: "Loben",
+    publisher: "CLV",
+    songs: Loben,
+  },
 ]

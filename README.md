@@ -4,7 +4,7 @@
 </h1>
 
 <p align="center">
-  An app for quickly searching and sharing songs
+  An app for quickly searching and sharing songs.
 </p>
 
 <p align="center">
@@ -17,6 +17,10 @@
   <a href="https://shareme.netlify.com">
     <img alt="App" src="https://img.shields.io/badge/app-shareme-crimson.svg?logo=angular">
   </a>
+</p>
+
+<p align="center">
+  Works best on 'chrome for android'.
 </p>
 
 # Devs
