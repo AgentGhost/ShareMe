@@ -1,5 +1,7 @@
 :host {
   display: flex;
+  position: relative;
+  margin: 0 1rem;
 }
 
 input {
@@ -9,10 +11,14 @@ input {
   font-size: 1rem;
   outline: none;
   transition: 0.15s ease-out;
-  margin: 0 1rem;
   text-transform: uppercase;
 
   &:focus {
     border: 2px solid crimson;
   }
+}
+
+app-suggestions {
+  position: absolute;
+  top: 100%;
 }

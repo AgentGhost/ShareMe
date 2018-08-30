@@ -40,7 +40,7 @@ button {
   &:active {
     opacity: .75;
   }
- 
+
   &::after {
     opacity: 0;
     transition: ease-out .2s;
@@ -51,13 +51,13 @@ button {
     top: 0;
     bottom: 0;
     $bop: .5;
-    background-image: repeating-linear-gradient(100deg, 
-    rgba(#ccc,$bop), 
-    rgba(#ccc,$bop) 30px, 
-    rgba(#dbdbdb,$bop) 30px, 
+    background-image: repeating-linear-gradient(100deg,
+    rgba(#ccc,$bop),
+    rgba(#ccc,$bop) 30px,
+    rgba(#dbdbdb,$bop) 30px,
     rgba(#dbdbdb,$bop) 60px);
   }
-  
+
   &.disabled {
     pointer-events: none;
 

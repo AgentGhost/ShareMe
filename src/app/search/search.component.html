@@ -2,5 +2,8 @@
   type="text"
   placeholder="Liednummer (z.B. b137 / g10)"
   (keydown.enter)="onKeydownEnter()"
+  [formControl]="input"
   #inputElement
 >
+
+<app-suggestions [suggestions]="suggestions | async"></app-suggestions>
