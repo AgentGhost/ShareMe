@@ -50,7 +50,9 @@ export class SearchComponent implements AfterViewInit {
   }
 
   addSong(song: ListItem) {
-    this.songlistService.add(song)
+    if (song) {
+      this.songlistService.add(song)
+    }
     this.input.setValue("")
   }
 
