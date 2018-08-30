@@ -32,10 +32,6 @@ const listOfSongLists = contents
 
 const possibleSuggestions: Output[] = [].concat(...listOfSongLists)
 
-console.log(JSON.stringify(possibleSuggestions[0], null, 2))
-console.log(JSON.stringify(possibleSuggestions[15], null, 2))
-console.log(JSON.stringify(possibleSuggestions[23], null, 2))
-
 @Injectable({
   providedIn: "root",
 })
