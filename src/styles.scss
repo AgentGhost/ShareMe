@@ -11,8 +11,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: #FAFAFA;
-  background: crimson;
+  background: #87CEEB;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +42,7 @@ button {
   user-select: none;
   transition: ease-out .15s;
   position: relative;
-  box-shadow: 0 1px 2px #ccc;
+  box-shadow: 0 1px 2px #F1F1F1;
 
   &:active {
     opacity: .75;
@@ -60,8 +59,8 @@ button {
     bottom: 0;
     $bop: .5;
     background-image: repeating-linear-gradient(100deg,
-    rgba(#ccc,$bop),
-    rgba(#ccc,$bop) 30px,
+    rgba(#F1F1F1,$bop),
+    rgba(#F1F1F1,$bop) 30px,
     rgba(#dbdbdb,$bop) 30px,
     rgba(#dbdbdb,$bop) 60px);
   }

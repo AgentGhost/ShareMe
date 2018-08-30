@@ -8,14 +8,16 @@
   #inputElement
 >
 
-<div class="suggestions">
-  <div
-    *ngFor="let s of suggestionChanges | async; index as i; trackBy: trackSuggestion"
-    tabindex="0"
-    class="suggestion"
-    [class.focused]="focusedIndex === i"
-    (click)="addSong(s)"
-  >
-    {{ s.book }} {{ s.number }} – {{ s.name }}
+<ng-container *ngIf="suggestionChanges | async as suggestions">
+  <div class="suggestions" *ngIf="suggestions.length > 0">
+    <div
+      *ngFor="let s of suggestions; index as i; trackBy: trackSuggestion"
+      tabindex="0"
+      class="suggestion"
+      [class.focused]="focusedIndex === i"
+      (click)="addSong(s)"
+    >
+      {{ s.book }} {{ s.number }} – {{ s.name }}
+    </div>
   </div>
-</div>
+</ng-container>
