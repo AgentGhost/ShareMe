@@ -6,6 +6,8 @@ export interface Output {
   book: string
   number: number
   name: string
+  fulltextSearch?: string
+  qualifierSearch?: string
 }
 
 @Injectable({

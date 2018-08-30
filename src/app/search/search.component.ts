@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core"
 
 import { contents } from "src/app/contents/Contents"
 import { SonglistService } from "src/app/songlist.service"
+import { SuggestionService } from "src/app/suggestion.service"
 
 @Component({
   selector: "app-search",
@@ -14,6 +15,7 @@ export class SearchComponent implements AfterViewInit {
 
   constructor(
     private songlist: SonglistService,
+    private suggestions: SuggestionService,
   ) { }
 
   ngAfterViewInit() {

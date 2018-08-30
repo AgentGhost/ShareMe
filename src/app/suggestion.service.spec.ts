@@ -1,4 +1,4 @@
-import { Song } from "src/app/contents/Contents"
+import { Song, contents } from "src/app/contents/Contents"
 import { Iwdd } from "src/app/contents/Iwdd"
 import { Loben } from "src/app/contents/Loben"
 import { Output } from "src/app/songlist.service"
@@ -25,10 +25,19 @@ function iwdd(id: number | string): Output {
   return lookup(id, "Iwdd!", Iwdd)
 }
 
-fdescribe("Suchvorschläge", () => {
-  const service = new SuggestionService()
-  const search = (input) => service.getSuggestions(input)
+const service = new SuggestionService()
 
+function search(input: string) {
+  return service.getSuggestions(input).map(result => {
+    return {
+      book: result.book,
+      number: result.number,
+      name: result.name,
+    }
+  })
+}
+
+describe("Suchvorschläge:", () => {
   describe("Eingaben, nach denen Gesucht werden kann:", () => {
 
     it("Qualifier", () => {
@@ -57,6 +66,7 @@ fdescribe("Suchvorschläge", () => {
         iwdd("Für mich gingst Du nach Golgatha (Herr, Deine Liebe ist so groß)"),
         iwdd("O Du Lamm Gottes, du hast auf Golgatha"),
         iwdd("Kennst Du den Weg zum Kreuz auf Golgatha"),
+        iwdd("Dort auf Golgatha stand (Schätzen werd ich das alt rauhe Kreuz)"),
         loben("Auf dem Hügel Golgatha"),
         loben("Für mich gingst du nach Golgatha"),
       ]
@@ -69,21 +79,9 @@ fdescribe("Suchvorschläge", () => {
       expect(results).toEqual(expected)
     })
 
-    it("Klammern", () => {
-      const results = search("(2 ")
-      const expected = [
-        loben("Du gibst das Leben (2 Liedsätze)"),
-      ]
-      const notExpected = [
-        loben("Lobe den Herrn, meine Seele (II)"), // = Loben(2)
-      ]
-      expect(results).toEqual(jasmine.arrayContaining(expected))
-      expect(results).not.toEqual(jasmine.arrayContaining(notExpected))
-    })
-
   })
 
-  describe("Spezielles Suchverhalten", () => {
+  describe("Spezielles Suchverhalten:", () => {
 
     it("Groß-Kleinschreibung wird ignoriert", () => {
       expect(search("g463")).toEqual(search("G463"))
@@ -99,7 +97,8 @@ fdescribe("Suchvorschläge", () => {
     it("Teilweise Treffer werden aufgelistet", () => {
       const results = search("g46")
       const expected: Output[] = [
-        iwdd(46), iwdd(460), iwdd(461), iwdd(462), iwdd(463),
+        iwdd("His name is Wonderful"), iwdd("Sein Nam' heißt Wunderbar"), // 46
+        iwdd(460), iwdd(461), iwdd(462), iwdd(463),
       ]
       expect(results).toEqual(expected)
     })
@@ -110,22 +109,9 @@ fdescribe("Suchvorschläge", () => {
       expect(results[0]).toEqual(iwdd(46))
     })
 
-    it("Suchergebnisse sind alphabetisch nach Buch sortiert", () => {
-      const results = search("365")
-      expect(results.length).toEqual(2)
-      expect(results[0]).toEqual(loben(365))
-      expect(results[0]).toEqual(iwdd(365))
-    })
-
-    it("Suchergebnisse sind nach fortlaufender Liednummer sortiert", () => {
-      const results = search("65")
-      expect(results.length).toBeGreaterThan(1)
-      expect(results[0].number).toBeLessThan(results[1].number)
-    })
-
   })
 
-  describe("Die Suche nach Qualifier wird bevorzugt, außer wenn...", () => {
+  describe("Die Suche nach Qualifier wird bevorzugt, außer wenn:", () => {
 
     it("...wird bevorzugt", () => {
       const results = search("b")
@@ -139,7 +125,7 @@ fdescribe("Suchvorschläge", () => {
       expect(results).not.toEqual(jasmine.arrayContaining(notExpected))
     })
 
-    it("...das erste Input-Zeichen keinem Qualifier entspricht (z.B. nicht 'g' oder 'b' sondern 'd' oder '3')", () => {
+    it("das erste Input-Zeichen keinem Qualifier entspricht (z.B. nicht 'g' oder 'b' sondern 'd' oder '3')", () => {
       const results = search("d")
       const expected = [
         loben("All die Fülle ist in dir"),
@@ -148,7 +134,7 @@ fdescribe("Suchvorschläge", () => {
       expect(results).toEqual(jasmine.arrayContaining(expected))
     })
 
-    it("...das zweite Zeichen keiner Zahl entspricht (z.B. 'bT')", () => {
+    it("das zweite Zeichen keiner Zahl entspricht (z.B. 'bT')", () => {
       const results = search("bt")
       const expected = [
         loben("Gott gibt Mut zum Leben"),
