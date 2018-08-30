@@ -109,6 +109,11 @@ describe("Suchvorschläge:", () => {
       expect(results[0]).toEqual(iwdd(46))
     })
 
+    it("Eine leere Eingabe hat keine Ergebnisse", () => {
+      const results = search(" ")
+      expect(results.length).toBe(0)
+    })
+
   })
 
   describe("Die Suche nach Qualifier wird bevorzugt, außer wenn:", () => {

@@ -44,6 +44,10 @@ export class SuggestionService {
   getSuggestions(input: string): Output[] {
     const normalizedInput = normalize(input || "")
 
+    if (!normalizedInput) {
+      return []
+    }
+
     let result = possibleSuggestions.filter(suggestion => {
       return suggestion.qualifierSearch.startsWith(normalizedInput)
     })
