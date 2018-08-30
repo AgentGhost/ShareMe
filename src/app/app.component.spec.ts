@@ -1,20 +1,26 @@
 import { async, TestBed } from "@angular/core/testing"
+import { ReactiveFormsModule } from "@angular/forms"
 
 import { AppComponent } from "./app.component"
 import { ButtonsComponent } from "./buttons/buttons.component"
 import { HeaderComponent } from "./header/header.component"
 import { SearchComponent } from "./search/search.component"
 import { SongsComponent } from "./songs/songs.component"
+import { SuggestionsComponent } from "./suggestions/suggestions.component"
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        ReactiveFormsModule,
+      ],
       declarations: [
         AppComponent,
         ButtonsComponent,
-        SongsComponent,
-        SearchComponent,
         HeaderComponent,
+        SearchComponent,
+        SongsComponent,
+        SuggestionsComponent,
       ],
     }).compileComponents()
   }))

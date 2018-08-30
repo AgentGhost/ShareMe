@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing"
+import { ReactiveFormsModule } from "@angular/forms"
+
+import { SuggestionsComponent } from "src/app/suggestions/suggestions.component"
 
 import { SearchComponent } from "./search.component"
 
@@ -8,9 +11,14 @@ describe("SearchComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchComponent ],
-    })
-    .compileComponents()
+      imports: [
+        ReactiveFormsModule,
+      ],
+      declarations: [
+        SuggestionsComponent,
+        SearchComponent,
+      ],
+    }).compileComponents()
   }))
 
   beforeEach(() => {
