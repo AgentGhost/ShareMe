@@ -1,4 +1,4 @@
-import { Component } from "@angular/core"
+import { ChangeDetectionStrategy, Component } from "@angular/core"
 
 import { SonglistService } from "src/app/songlist.service"
 
@@ -6,6 +6,7 @@ import { SonglistService } from "src/app/songlist.service"
   selector: "app-songs",
   templateUrl: "./songs.component.html",
   styleUrls: ["./songs.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SongsComponent {
 
