@@ -1,15 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~normalize-scss/sass/normalize/import-now";
-@import url("https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700");
-@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great");
+@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great:400");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 html,
 body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background: #FAFAFA;
+  background: crimson;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 html,
@@ -19,9 +25,10 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: "Cabin Sketch", cursive;
+  font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 16px;
+  border-radius: 3px;
 }
 
 * {
@@ -29,13 +36,14 @@ textarea {
 }
 
 button {
-  font-family: "Fredericka the Great", cursive;
+  font-family: 'Fredericka the Great', cursive;
   display: flex;
   align-items: center;
   justify-content: center;
   user-select: none;
-  transition: ease-out .2s;
+  transition: ease-out .15s;
   position: relative;
+  box-shadow: 0 1px 2px #ccc;
 
   &:active {
     opacity: .75;
@@ -43,7 +51,7 @@ button {
 
   &::after {
     opacity: 0;
-    transition: ease-out .2s;
+    transition: ease-out .15s;
     content: "";
     position: absolute;
     left: 0;
@@ -71,3 +79,15 @@ button {
   }
 }
 
+input {
+  height: 3.0rem;
+  padding: 0 0.5rem;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.15s ease-out;
+  border: 2px solid hsl(0, 0%, 40%);
+
+  &:focus {
+    border: 2px solid crimson;
+  }
+}
