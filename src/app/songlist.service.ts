@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core"
 
-import { Observable, ReplaySubject } from "rxjs"
+import { ReplaySubject } from "rxjs"
 
-export interface Output {
+export interface ListItem {
   book: string
   number: number
   name: string
@@ -15,15 +15,15 @@ export interface Output {
 })
 export class SonglistService {
 
-  private list: Output[] = []
-  private subject = new ReplaySubject<Output[]>(1)
+  private listItems: ListItem[] = []
+  private listItemsSubject = new ReplaySubject<ListItem[]>(1)
 
   constructor() {
     const restored = window.localStorage.getItem("songlist")
     if (restored) {
-      this.list = JSON.parse(restored)
+      this.listItems = JSON.parse(restored)
     } else {
-      this.list = []
+      this.listItems = []
     }
     this.emit()
     this.observe().subscribe(list => {
@@ -32,31 +32,31 @@ export class SonglistService {
     })
   }
 
-  get output(): Output[] {
-    return [...this.list]
+  get current() {
+    return [...this.listItems]
   }
 
-  observe(): Observable<Output[]> {
-    return this.subject.asObservable()
+  observe() {
+    return this.listItemsSubject.asObservable()
   }
 
-  add(output: Output): void {
-    this.list.push(output)
+  add(song: ListItem) {
+    this.listItems.push(song)
     this.emit()
   }
 
   remove(index: number) {
-    this.list.splice(index, 1)
+    this.listItems.splice(index, 1)
     this.emit()
   }
 
   clear() {
-    this.list = []
+    this.listItems = []
     this.emit()
   }
 
   private emit() {
-    this.subject.next([...this.list])
+    this.listItemsSubject.next([...this.listItems])
   }
 
 }

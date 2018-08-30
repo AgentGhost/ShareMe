@@ -6,7 +6,6 @@ import { ButtonsComponent } from "./buttons/buttons.component"
 import { HeaderComponent } from "./header/header.component"
 import { SearchComponent } from "./search/search.component"
 import { SongsComponent } from "./songs/songs.component"
-import { SuggestionsComponent } from "./suggestions/suggestions.component"
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
@@ -20,7 +19,6 @@ describe("AppComponent", () => {
         HeaderComponent,
         SearchComponent,
         SongsComponent,
-        SuggestionsComponent,
       ],
     }).compileComponents()
   }))

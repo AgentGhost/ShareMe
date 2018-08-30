@@ -26,6 +26,7 @@
     "core-js": "^2.5.4",
     "normalize-scss": "^7.0.1",
     "rxjs": "^6.0.0",
+    "scroll-into-view-if-needed": "^2.2.16",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

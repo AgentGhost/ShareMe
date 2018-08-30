@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core"
 
 import { contents } from "src/app/contents/Contents"
-import { Output } from "src/app/songlist.service"
+import { ListItem } from "src/app/songlist.service"
 
 const normalize = (input: string): string => {
   return input
@@ -14,7 +14,7 @@ const normalize = (input: string): string => {
 
 const listOfSongLists = contents
   .map(content => content.songs.map(song => {
-    const output: Output = {
+    const selection: ListItem = {
       book: content.short,
       number: song.number,
       name: song.name,
@@ -25,32 +25,32 @@ const listOfSongLists = contents
       song.number,
       song.name,
     ]
-    output.fulltextSearch = normalize(keywords.join(" "))
-    output.qualifierSearch = content.qualifier + song.number
-    return output
+    selection.fulltextSearch = normalize(keywords.join(" "))
+    selection.qualifierSearch = content.qualifier + song.number
+    return selection
   }))
 
-const possibleSuggestions: Output[] = [].concat(...listOfSongLists)
+const allSuggestions: ListItem[] = [].concat(...listOfSongLists)
 
 @Injectable({
   providedIn: "root",
 })
 export class SuggestionService {
 
-  getSuggestions(input: string): Output[] {
+  getSuggestions = (input: string): ListItem[] => {
     const normalizedInput = normalize(input || "")
 
     if (!normalizedInput) {
       return []
     }
 
-    let result = possibleSuggestions.filter(suggestion => {
+    let result = allSuggestions.filter(suggestion => {
       return suggestion.qualifierSearch.startsWith(normalizedInput)
     })
 
     if (result.length === 0) {
       const words = normalize(input || "").split(" ")
-      result = possibleSuggestions.filter(suggestion => {
+      result = allSuggestions.filter(suggestion => {
         return words.every(word => {
           return suggestion.fulltextSearch.includes(word)
         })

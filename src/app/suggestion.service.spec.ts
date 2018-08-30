@@ -1,11 +1,11 @@
 import { Song, contents } from "src/app/contents/Contents"
 import { Iwdd } from "src/app/contents/Iwdd"
 import { Loben } from "src/app/contents/Loben"
-import { Output } from "src/app/songlist.service"
+import { ListItem } from "src/app/songlist.service"
 
 import { SuggestionService } from "./suggestion.service"
 
-function lookup(id: number | string, book: string, songs: Song[]): Output {
+function lookup(id: number | string, book: string, songs: Song[]): ListItem {
   const song = songs.find(s => s.number === id || s.name === id)
   if (song) {
     return {
@@ -17,11 +17,11 @@ function lookup(id: number | string, book: string, songs: Song[]): Output {
   throw new Error("No such song: " + id)
 }
 
-function loben(id: number | string): Output {
+function loben(id: number | string): ListItem {
   return lookup(id, "Loben", Loben)
 }
 
-function iwdd(id: number | string): Output {
+function iwdd(id: number | string): ListItem {
   return lookup(id, "Iwdd!", Iwdd)
 }
 
@@ -53,7 +53,7 @@ describe("Suchvorschläge:", () => {
 
     it("Liednummer", () => {
       const results = search("63")
-      const expected: Output[] = [
+      const expected: ListItem[] = [
         iwdd(63), iwdd(163), iwdd(263), iwdd(363), iwdd(463),
         loben(63), loben(163), loben(263), loben(363),
       ]
@@ -96,7 +96,7 @@ describe("Suchvorschläge:", () => {
 
     it("Teilweise Treffer werden aufgelistet", () => {
       const results = search("g46")
-      const expected: Output[] = [
+      const expected: ListItem[] = [
         iwdd("His name is Wonderful"), iwdd("Sein Nam' heißt Wunderbar"), // 46
         iwdd(460), iwdd(461), iwdd(462), iwdd(463),
       ]

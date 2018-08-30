@@ -1,24 +1,54 @@
 :host {
-  display: flex;
   position: relative;
   margin: 0 1rem;
 }
 
 input {
-  flex: 1;
-  height: 3.0rem;
-  padding: 0 0.5rem;
-  font-size: 1rem;
-  outline: none;
-  transition: 0.15s ease-out;
-  text-transform: uppercase;
-
-  &:focus {
-    border: 2px solid crimson;
-  }
+  width: 100%;
 }
 
-app-suggestions {
+.suggestions {
   position: absolute;
   top: 100%;
+  display: block;
+  width: 100%;
+  border: solid #eee;
+  border-width: 0 1px 1px 1px;
+  background: white;
+  z-index: 1;
+  max-height: 50vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.suggestion {
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid #eee;
+  transition: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: start;
+  width: 100%;
+
+  &:hover {
+    background: black;
+    color: white;
+  }
+
+  &.focused {
+    background: #eee;
+    color: black;
+
+    &:hover {
+      background: black;
+      color: #ccc;
+    }
+  }
 }

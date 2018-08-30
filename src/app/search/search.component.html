@@ -2,10 +2,20 @@
   type="text"
   placeholder="Liednummer (z.B. b137 / g10)"
   (keydown.enter)="onKeydownEnter()"
+  (keydown.arrowup)="focusSuggestion(focusedIndex - 1); $event.preventDefault()"
+  (keydown.arrowdown)="focusSuggestion(focusedIndex + 1); $event.preventDefault()"
   [formControl]="input"
   #inputElement
 >
 
-<app-suggestions
-  [suggestions]="suggestions | async"
-></app-suggestions>
+<div class="suggestions">
+  <div
+    *ngFor="let s of suggestionChanges | async; index as i; trackBy: trackSuggestion"
+    tabindex="0"
+    class="suggestion"
+    [class.focused]="focusedIndex === i"
+    (click)="addSong(s)"
+  >
+    {{ s.book }} {{ s.number }} – {{ s.name }}
+  </div>
+</div>

@@ -1,4 +1,3 @@
-import { CommonModule } from "@angular/common"
 import { NgModule } from "@angular/core"
 import { ReactiveFormsModule } from "@angular/forms"
 import { BrowserModule } from "@angular/platform-browser"
@@ -11,7 +10,6 @@ import { ButtonsComponent } from "./buttons/buttons.component"
 import { HeaderComponent } from "./header/header.component"
 import { SearchComponent } from "./search/search.component"
 import { SongsComponent } from "./songs/songs.component"
-import { SuggestionsComponent } from "./suggestions/suggestions.component"
 
 @NgModule({
   imports: [
@@ -25,7 +23,6 @@ import { SuggestionsComponent } from "./suggestions/suggestions.component"
     SongsComponent,
     SearchComponent,
     HeaderComponent,
-    SuggestionsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
