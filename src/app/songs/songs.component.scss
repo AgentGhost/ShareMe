@@ -25,3 +25,15 @@
   color: white;
   background-color: crimson;
 }
+
+.favorite {
+  box-align: center;
+  box-shadow: 0 1px 2px #eee;
+  margin-left: 1rem;
+  color: crimson;
+  background-color: transparent;
+  
+  &:active {
+    background-color: pink;
+  }
+}
