@@ -1,4 +1,10 @@
-<div class="song" *ngFor="let song of songs | async; index as i">
-  <button class="remove" (click)="remove(i)">X</button>
-  <div class="name">{{ song.book }} {{ song.number }} – {{ song.name }}</div>
-</div>
+<ng-container *ngIf="favorites | async as favs">
+  <div class="song" *ngFor="let song of songs | async; index as i">
+    <button class="remove" (click)="remove(i)">X</button>
+    <div class="name">{{ song.book }} {{ song.number }} – {{ song.name }}</div>
+    <button class="favorite" (click)="favorite(song)">
+      <i *ngIf="!favs[song.fulltextSearch]" class="material-icons">favorite_outline</i>
+      <i *ngIf="favs[song.fulltextSearch]" class="material-icons">favorite</i>
+    </button>
+  </div>
+</ng-container>
