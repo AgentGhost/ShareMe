@@ -30,6 +30,7 @@ export class SearchComponent implements AfterViewInit {
 
   suggestions: ListItem[] = []
   focusedIndex = 0
+  busy = false
 
   constructor(
     private songlistService: SonglistService,
@@ -40,6 +41,7 @@ export class SearchComponent implements AfterViewInit {
     this.inputElement.nativeElement.focus()
     this.suggestionChanges.subscribe(suggestions => {
       this.suggestions = suggestions
+      this.busy = false
       this.focusSuggestion(0)
       this.updateScroll()
     })
