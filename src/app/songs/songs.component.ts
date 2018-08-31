@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core"
 
 import { SonglistService, ListItem } from "src/app/songlist.service"
-import { FavoriteService } from "../favorite.service";
+import { FavoriteService } from "../favorite.service"
 
 @Component({
   selector: "app-songs",
@@ -27,5 +27,5 @@ export class SongsComponent {
     this.favlist.toggle(song)
   }
 
-  
+
 }

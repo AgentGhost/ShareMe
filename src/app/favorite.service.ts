@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { ReplaySubject } from 'rxjs';
-import { ListItem } from './songlist.service';
+import { Injectable } from "@angular/core"
+import { ReplaySubject } from "rxjs"
+import { ListItem } from "./songlist.service"
 
 interface Favorites {
   [index: string]: any
@@ -9,7 +9,7 @@ interface Favorites {
 const storageKey = "favorites"
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class FavoriteService {
 
