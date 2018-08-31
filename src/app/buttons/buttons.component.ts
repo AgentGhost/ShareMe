@@ -26,7 +26,7 @@ export class ButtonsComponent {
   ) { }
 
   mark() {
-    const text = this.songlist.output
+    const text = this.songlist.current
       .map(song => [song.book, song.number, "-", song.name].join(" "))
       .join("\n")
     return text
@@ -37,6 +37,7 @@ export class ButtonsComponent {
       const textarea = this.textareaElement.nativeElement
       textarea.value = this.mark()
       textarea.select()
+      textarea.blur()
       document.execCommand("copy")
       console.log("Successful copy")
     } catch (error) {

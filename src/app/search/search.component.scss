@@ -1,18 +1,56 @@
 :host {
-  display: flex;
+  position: relative;
+  margin: 0 1rem;
 }
 
 input {
-  flex: 1;
-  height: 3.0rem;
-  padding: 0 0.5rem;
-  font-size: 1rem;
-  outline: none;
-  transition: 0.15s ease-out;
-  margin: 0 1rem;
-  text-transform: uppercase;
+  width: 100%;
+}
 
-  &:focus {
-    border: 2px solid crimson;
+.suggestions {
+  position: absolute;
+  top: 100%;
+  display: block;
+  width: 100%;
+  border: solid #C1C1C1;
+  border-width: 1px;
+  background: white;
+  z-index: 1;
+  max-height: 50vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 3px;
+}
+
+.suggestion {
+  height: 2.75rem;
+  padding: 0 0.5rem;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  border-top: 1px solid #F1F1F1;
+  transition: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: start;
+  width: 100%;
+  overflow: hidden;
+
+  &:hover {
+    background: black;
+    color: white;
+  }
+
+  &.focused {
+    background: #F1F1F1;
+    color: black;
+
+    &:hover {
+      background: black;
+      color: #F1F1F1;
+    }
   }
 }

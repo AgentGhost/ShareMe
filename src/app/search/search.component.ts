@@ -1,7 +1,16 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core"
+import { FormControl } from "@angular/forms"
 
-import { contents } from "src/app/contents/Contents"
-import { SonglistService } from "src/app/songlist.service"
+import { debounceTime, map, shareReplay } from "rxjs/operators"
+import scrollIntoView, { Options } from "scroll-into-view-if-needed"
+
+import { ListItem, SonglistService } from "src/app/songlist.service"
+import { SuggestionService } from "src/app/suggestion.service"
+
+const scrollOptions: Options = {
+  block: "nearest",
+  scrollMode: "if-needed",
+}
 
 @Component({
   selector: "app-search",
@@ -12,36 +21,63 @@ export class SearchComponent implements AfterViewInit {
 
   @ViewChild("inputElement") inputElement: ElementRef
 
+  readonly input = new FormControl()
+  readonly suggestionChanges = this.input.valueChanges.pipe(
+    debounceTime(100),
+    map(this.suggestionsService.getSuggestions),
+    shareReplay(),
+  )
+
+  suggestions: ListItem[] = []
+  focusedIndex = 0
+
   constructor(
-    private songlist: SonglistService,
+    private songlistService: SonglistService,
+    private suggestionsService: SuggestionService,
   ) { }
 
   ngAfterViewInit() {
     this.inputElement.nativeElement.focus()
+    this.suggestionChanges.subscribe(suggestions => {
+      this.suggestions = suggestions
+      this.focusSuggestion(0)
+      this.updateScroll()
+    })
   }
 
   onKeydownEnter() {
-    const input = this.inputElement.nativeElement.value
-    this.addSong(input)
-    this.inputElement.nativeElement.value = ""
+    this.addSong(this.suggestions[this.focusedIndex])
   }
 
-  addSong(input: string) {
-    const inputLower = input.toLowerCase().trim()
+  addSong(song: ListItem) {
+    if (song) {
+      this.songlistService.add(song)
+    }
+    this.input.setValue("")
+  }
 
-    contents.forEach(content => {
-      const songs = content.songs.filter(song => {
-        return `${content.qualifier}${song.number}` === inputLower
-      })
+  focusSuggestion(index: number) {
+    if (index < 0) {
+      this.focusedIndex = this.suggestions.length - 1
+    } else if (index >= this.suggestions.length) {
+      this.focusedIndex = 0
+    } else {
+      this.focusedIndex = index
+    }
+    this.updateScroll()
+  }
 
-      if (songs.length > 0) {
-        this.songlist.add({
-          book: content.short,
-          number: songs[0].number,
-          name: songs.map(s => s.name).join(" | "),
-        })
-      }
-    })
+  updateScroll = () => {
+    const selector = `.suggestion:nth-of-type(${this.focusedIndex + 1})`
+    const el: any = document.querySelector(selector)
+
+    if (el) {
+      scrollIntoView(el, scrollOptions)
+    }
+  }
+
+  trackSuggestion(index: number, item: ListItem) {
+    return item.fulltextSearch
   }
 
 }

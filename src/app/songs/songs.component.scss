@@ -1,7 +1,6 @@
 :host {
   flex: 1;
-  margin: 1rem 0 0;
-  padding: 0 1rem;
+  margin: 1rem 1rem 0;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -10,7 +9,6 @@
   display: flex;
   align-items: center;
   min-height: 2.25rem;
-  font-weight: 700;
 }
 
 .name {
@@ -23,7 +21,6 @@
   outline: none;
   border: none;
   cursor: pointer;
-  box-shadow: 0 1px 2px #eee;
   margin-right: 1rem;
   color: white;
   background-color: crimson;
