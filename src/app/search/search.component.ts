@@ -47,6 +47,13 @@ export class SearchComponent implements AfterViewInit {
     })
   }
 
+  clear() {
+    this.input.setValue("")
+    this.suggestions = []
+    this.busy = false
+    this.inputElement.nativeElement.focus()
+  }
+
   onKeydownEnter() {
     this.addSong(this.suggestions[this.focusedIndex])
   }

@@ -8,6 +8,15 @@
   #inputElement
 >
 
+<button
+  *ngIf="input.value"
+  type="button"
+  class="clear"
+  (click)="busy=true; clear()"
+>
+  <i class="material-icons">clear</i>
+</button>
+
 <ng-container *ngIf="suggestionChanges | async as suggestions">
   <div class="suggestions" *ngIf="!busy && suggestions.length > 0">
     <div
@@ -15,7 +24,7 @@
       tabindex="0"
       class="suggestion"
       [class.focused]="focusedIndex === i"
-      (click)="busy = true; addSong(s)"
+      (click)="busy=true; addSong(s)"
     >
       {{ s.book }} {{ s.number }} – {{ s.name }}
     </div>
