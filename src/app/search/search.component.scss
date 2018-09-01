@@ -40,16 +40,16 @@ input {
   overflow: hidden;
 
   &:hover {
-    background: black;
+    background: #333;
     color: white;
   }
 
   &.focused {
     background: #F1F1F1;
-    color: black;
+    color: #333;
 
     &:hover {
-      background: black;
+      background: #333;
       color: #bbb;
     }
   }
@@ -59,7 +59,7 @@ input {
     color: white;
 
     &:hover {
-      background: black;
+      background: #333;
       color: crimson;
     }
   }
