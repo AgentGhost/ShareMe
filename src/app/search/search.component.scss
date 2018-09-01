@@ -50,7 +50,7 @@ input {
 
     &:hover {
       background: #333;
-      color: #bbb;
+      color: mix(#F1F1F1, #333, 67%);
     }
   }
 
@@ -60,7 +60,7 @@ input {
 
     &:hover {
       background: #333;
-      color: crimson;
+      color: mix(crimson, white, 67%);
     }
   }
 }
