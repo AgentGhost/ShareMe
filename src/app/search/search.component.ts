@@ -38,10 +38,11 @@ export class SearchComponent implements AfterViewInit {
   ) { }
 
   ngAfterViewInit() {
-    this.inputElement.nativeElement.focus()
+    this.clear()
     this.suggestionChanges.subscribe(suggestions => {
       this.suggestions = suggestions
       this.busy = false
+      this.inputElement.nativeElement.focus()
       this.focusSuggestion(0)
       this.updateScroll()
     })
