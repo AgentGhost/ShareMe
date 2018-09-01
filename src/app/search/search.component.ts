@@ -4,6 +4,7 @@ import { FormControl } from "@angular/forms"
 import { debounceTime, map, shareReplay } from "rxjs/operators"
 import scrollIntoView, { Options } from "scroll-into-view-if-needed"
 
+import { FavoriteService } from "src/app/favorite.service"
 import { ListItem, SonglistService } from "src/app/songlist.service"
 import { SuggestionService } from "src/app/suggestion.service"
 
@@ -21,6 +22,7 @@ export class SearchComponent implements AfterViewInit {
 
   @ViewChild("inputElement") inputElement: ElementRef
 
+  readonly favorites = this.favlist.observe()
   readonly input = new FormControl()
   readonly suggestionChanges = this.input.valueChanges.pipe(
     debounceTime(100),
@@ -33,6 +35,7 @@ export class SearchComponent implements AfterViewInit {
   busy = false
 
   constructor(
+    private favlist: FavoriteService,
     private songlistService: SonglistService,
     private suggestionsService: SuggestionService,
   ) { }

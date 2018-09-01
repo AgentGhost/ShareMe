@@ -50,7 +50,17 @@ input {
 
     &:hover {
       background: black;
-      color: #F1F1F1;
+      color: #bbb;
+    }
+  }
+
+  &.favorite {
+    background: crimson;
+    color: white;
+
+    &:hover {
+      background: black;
+      color: crimson;
     }
   }
 }
