@@ -2,8 +2,8 @@
   type="text"
   placeholder="Liednummer (z.B. b137 / g10)"
   (keydown.enter)="onKeydownEnter()"
-  (keydown.arrowup)="focusSuggestion(focusedIndex - 1); $event.preventDefault()"
-  (keydown.arrowdown)="focusSuggestion(focusedIndex + 1); $event.preventDefault()"
+  (keydown.arrowup)="highlightSuggestion(highlightedSuggestion - 1); $event.preventDefault()"
+  (keydown.arrowdown)="highlightSuggestion(highlightedSuggestion + 1); $event.preventDefault()"
   [formControl]="input"
   #inputElement
 >
@@ -23,7 +23,7 @@
       *ngFor="let s of suggestions; index as i; trackBy: trackSuggestion"
       tabindex="0"
       class="suggestion"
-      [class.focused]="focusedIndex === i"
+      [class.highlighted]="highlightedSuggestion === i"
       (click)="busy=true; addSong(s)"
     >
       {{ s.book }} {{ s.number }} – {{ s.name }}

@@ -29,7 +29,7 @@ export class SearchComponent implements AfterViewInit {
   )
 
   suggestions: ListItem[] = []
-  focusedIndex = 0
+  highlightedSuggestion = 0
   busy = false
 
   constructor(
@@ -43,7 +43,7 @@ export class SearchComponent implements AfterViewInit {
       this.suggestions = suggestions
       this.busy = false
       this.inputElement.nativeElement.focus()
-      this.focusSuggestion(0)
+      this.highlightSuggestion(0)
       this.updateScroll()
     })
   }
@@ -56,7 +56,7 @@ export class SearchComponent implements AfterViewInit {
   }
 
   onKeydownEnter() {
-    this.addSong(this.suggestions[this.focusedIndex])
+    this.addSong(this.suggestions[this.highlightedSuggestion])
   }
 
   addSong(song: ListItem) {
@@ -66,19 +66,19 @@ export class SearchComponent implements AfterViewInit {
     this.input.setValue("")
   }
 
-  focusSuggestion(index: number) {
+  highlightSuggestion(index: number) {
     if (index < 0) {
-      this.focusedIndex = this.suggestions.length - 1
+      this.highlightedSuggestion = this.suggestions.length - 1
     } else if (index >= this.suggestions.length) {
-      this.focusedIndex = 0
+      this.highlightedSuggestion = 0
     } else {
-      this.focusedIndex = index
+      this.highlightedSuggestion = index
     }
     this.updateScroll()
   }
 
   updateScroll = () => {
-    const selector = `.suggestion:nth-of-type(${this.focusedIndex + 1})`
+    const selector = `.suggestion:nth-of-type(${this.highlightedSuggestion + 1})`
     const el: any = document.querySelector(selector)
 
     if (el) {
