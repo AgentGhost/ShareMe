@@ -8,8 +8,8 @@ input {
 }
 
 .clear {
-  width: 3rem;
-  height: 3rem;
+  width: 3.0rem;
+  height: 3.0rem;
   border: 0;
   outline: 0;
   cursor: pointer;
@@ -29,7 +29,7 @@ input {
   top: 100%;
   display: block;
   width: 100%;
-  border: solid #c1c1c1;
+  border: solid #C1C1C1;
   border-width: 1px;
   background: white;
   z-index: 1;
@@ -65,12 +65,12 @@ input {
   }
 
   &.highlighted {
-    background: #f1f1f1;
+    background: #F1F1F1;
     color: #333;
 
     &:hover {
       background: #333;
-      color: mix(#f1f1f1, #333, 67%);
+      color: mix(#F1F1F1, #333, 67%);
     }
   }
 

@@ -7,23 +7,10 @@
   </button>
 
   <div class="button-group">
-    <button
-      *ngIf="isShareSupported"
-      type="button"
-      class="share"
-      [class.disabled]="!songs.length"
-      [class.busy]="sharing | async"
-      (click)="share()"
-    >
+    <button type="button" class="share" (click)="share()" *ngIf="isShareSupported" [class.disabled]="!songs.length">
       <i class="material-icons">share</i>Share
     </button>
-    <button
-      *ngIf="isCopySupported"
-      type="button"
-      class="copy"
-      [class.disabled]="!songs.length"
-      (click)="copy()"
-    >
+    <button type="button" class="copy" (click)="copy()" *ngIf="isCopySupported" [class.disabled]="!songs.length">
       <i class="material-icons">filter_none</i>Copy
     </button>
   </div>
@@ -31,3 +18,4 @@
 </ng-container>
 
 <textarea tabindex="-1" #textareaElement></textarea>
+

@@ -3,8 +3,8 @@
 @import "~normalize-scss/sass/normalize/import-now";
 @import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great:400");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import url("https://fonts.googleapis.com/css?family=Slabo+27px");
-@import url("https://fonts.googleapis.com/css?family=Raleway");
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 html,
 body {
@@ -24,7 +24,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 16px;
   border-radius: 3px;
@@ -35,36 +35,34 @@ textarea {
 }
 
 button {
-  font-family: "Fredericka the Great", cursive;
+  font-family: 'Fredericka the Great', cursive;
   display: flex;
   align-items: center;
   justify-content: center;
   user-select: none;
-  transition: ease-out 0.15s;
+  transition: ease-out .15s;
   position: relative;
-  box-shadow: 0 1px 2px #f1f1f1;
+  box-shadow: 0 1px 2px #F1F1F1;
 
   &:active {
-    opacity: 0.33;
+    opacity: .33;
   }
 
   &::after {
     opacity: 0;
-    transition: ease-out 0.15s;
+    transition: ease-out .15s;
     content: "";
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    $bop: 0.5;
-    background-image: repeating-linear-gradient(
-      100deg,
-      rgba(#f1f1f1, $bop),
-      rgba(#f1f1f1, $bop) 30px,
-      rgba(#dbdbdb, $bop) 30px,
-      rgba(#dbdbdb, $bop) 60px
-    );
+    $bop: .5;
+    background-image: repeating-linear-gradient(100deg,
+    rgba(#F1F1F1,$bop),
+    rgba(#F1F1F1,$bop) 30px,
+    rgba(#dbdbdb,$bop) 30px,
+    rgba(#dbdbdb,$bop) 60px);
   }
 
   &.disabled {
@@ -77,7 +75,7 @@ button {
 }
 
 input {
-  height: 3rem;
+  height: 3.0rem;
   padding: 0 0.5rem;
   font-size: 1rem;
   outline: none;
