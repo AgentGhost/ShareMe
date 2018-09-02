@@ -1,7 +1,7 @@
 {
   "name": "ShareMe",
   "short_name": "ShareMe",
-  "theme_color": "#f0f8ff",
+  "theme_color": "#708090",
   "background_color": "#fafafa",
   "display": "standalone",
   "orientation": "portrait",
