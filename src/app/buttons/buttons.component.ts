@@ -37,7 +37,7 @@ export class ButtonsComponent {
       const textarea = this.textareaElement.nativeElement
       textarea.value = this.mark()
       textarea.select()
-      textarea.blur()
+      //textarea.blur()
       document.execCommand("copy")
       console.log("Successful copy")
     } catch (error) {
