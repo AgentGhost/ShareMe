@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Logo" src="https://image.flaticon.com/icons/svg/1058/1058102.svg" height="48">
+  <img alt="Logo" src="https://raw.githubusercontent.com/AgentGhost/ShareMe/master/src/assets/icons/icon.svg" height="48">
   ShareMe
 </h1>
 
