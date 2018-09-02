@@ -2,27 +2,36 @@
   type="text"
   placeholder="Liednummer (z.B. b137 / g10)"
   (keydown.enter)="onKeydownEnter()"
-  (keydown.arrowup)="focusSuggestion(focusedIndex - 1); $event.preventDefault()"
-  (keydown.arrowdown)="focusSuggestion(focusedIndex + 1); $event.preventDefault()"
+  (keydown.arrowup)="highlightSuggestion(highlightedSuggestion - 1); $event.preventDefault()"
+  (keydown.arrowdown)="highlightSuggestion(highlightedSuggestion + 1); $event.preventDefault()"
   [formControl]="input"
   #inputElement
 >
 
+<button
+  *ngIf="inputElement.value"
+  type="button"
+  class="clear"
+  (click)="busy=true; clear()"
+>
+  <i class="material-icons">clear</i>
+</button>
+
 <ng-container *ngIf="favorites | async as favs">
 <ng-container *ngIf="suggestionChanges | async as suggestions">
-
+  
 <div class="suggestions" *ngIf="!busy && suggestions.length > 0">
   <div
     *ngFor="let s of suggestions; index as i; trackBy: trackSuggestion"
     tabindex="0"
     class="suggestion"
-    [class.focused]="focusedIndex === i"
+    [class.highlighted]="highlightedSuggestion === i"
     [class.favorite]="favs[s.fulltextSearch]"
-    (click)="busy = true; addSong(s)"
+    (click)="busy=true; addSong(s)"
   >
     {{ s.book }} {{ s.number }} – {{ s.name }}
   </div>
 </div>
-
+  
 </ng-container>
 </ng-container>

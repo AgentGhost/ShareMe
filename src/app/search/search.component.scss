@@ -7,6 +7,23 @@ input {
   width: 100%;
 }
 
+.clear {
+  width: 3.0rem;
+  height: 3.0rem;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: none;
+
+  &:hover {
+    color: crimson;
+  }
+}
+
 .suggestions {
   position: absolute;
   top: 100%;
@@ -44,7 +61,7 @@ input {
     color: white;
   }
 
-  &.focused {
+  &.highlighted {
     background: #F1F1F1;
     color: #333;
 
