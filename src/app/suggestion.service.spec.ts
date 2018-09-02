@@ -22,7 +22,7 @@ function loben(id: number | string): ListItem {
 }
 
 function iwdd(id: number | string): ListItem {
-  return lookup(id, "Iwdd!", Iwdd)
+  return lookup(id, "Iwdd", Iwdd)
 }
 
 const service = new SuggestionService()
@@ -47,7 +47,7 @@ describe("Suchvorschläge:", () => {
     })
 
     it("Buch", () => {
-      const results = search("Iwdd!")
+      const results = search("Iwdd")
       expect(results.length).toEqual(Iwdd.length)
     })
 
@@ -74,7 +74,7 @@ describe("Suchvorschläge:", () => {
     })
 
     it("Kombination aus Buch, Liednummer und Name", () => {
-      const results = search("Iwdd! 180 Golgatha")
+      const results = search("Iwdd 180 Golgatha")
       const expected = [iwdd(180)]
       expect(results).toEqual(expected)
     })
@@ -85,13 +85,13 @@ describe("Suchvorschläge:", () => {
 
     it("Groß-Kleinschreibung wird ignoriert", () => {
       expect(search("g463")).toEqual(search("G463"))
-      expect(search("Iwdd!")).toEqual(search("IWDD!"))
+      expect(search("Iwdd")).toEqual(search("IWDD"))
       expect(search("Golgatha")).toEqual(search("golGATHA"))
-      expect(search("Iwdd! 180 Golgatha")).toEqual(search("iwdd! 180 golgatha"))
+      expect(search("Iwdd 180 Golgatha")).toEqual(search("iwdd 180 golgatha"))
     })
 
     it("Unnötigen Leerzeichen werden ignoriert", () => {
-      expect(search("Iwdd! 180 Golgatha")).toEqual(search(" iwdd!    180 golgatha  "))
+      expect(search("Iwdd 180 Golgatha")).toEqual(search(" iwdd    180 golgatha  "))
     })
 
     it("Teilweise Treffer werden aufgelistet", () => {
