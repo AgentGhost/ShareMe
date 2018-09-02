@@ -28,6 +28,8 @@
     [class.highlighted]="highlightedSuggestion === i"
     [class.favorite]="favs[s.fulltextSearch]"
     (click)="busy=true; addSong(s)"
+  >
+    {{ s.book }} {{ s.number }} – {{ s.name }}
   </div>
 </div>
   
