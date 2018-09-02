@@ -46,7 +46,6 @@ input {
   cursor: pointer;
   outline: none;
   border: 0;
-  border-top: 1px solid #f1f1f1;
   transition: none;
   position: relative;
   display: flex;
@@ -55,6 +54,10 @@ input {
   text-align: start;
   width: 100%;
   overflow: hidden;
+
+  &:not(:first-of-type) {
+    border-top: 1px solid #F1F1F1;
+  }
 
   &:hover {
     background: #333;
