@@ -1,7 +1,7 @@
 :host {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  margin: 0.5rem;
+  margin: .5rem;
 }
 
 .button-group {
@@ -20,19 +20,7 @@
   cursor: pointer;
   padding: 0.5rem;
   text-transform: uppercase;
-  margin: 0.5rem;
-}
-
-.share {
-  &.busy {
-    .material-icons {
-      @keyframes rotate {
-        from { transform: rotateY(0deg) }
-        to { transform: rotateY(360deg) }
-      }
-      animation: rotate 1s linear infinite;
-    }
-  }
+  margin: .5rem;
 }
 
 .clear {
