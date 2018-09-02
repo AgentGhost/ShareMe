@@ -1,7 +1,7 @@
 import { Song, contents } from "src/app/contents/Contents"
 import { Iwdd } from "src/app/contents/Iwdd"
 import { Loben } from "src/app/contents/Loben"
-import { ListItem } from "src/app/songlist.service"
+import { ListItem } from "src/app/song.service"
 
 import { SuggestionService } from "./suggestion.service"
 

@@ -1,0 +1,66 @@
+@import "imports";
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  display: block;
+  width: 100%;
+  border: solid #c1c1c1;
+  border-width: 1px;
+  background: white;
+  z-index: 1;
+  max-height: 50vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: $border-radius;
+  animation: fade-in-down 0.15s ease-out;
+}
+
+.suggestion {
+  min-height: dp(48);
+  padding: dp(6);
+  background: transparent;
+  cursor: pointer;
+  border: 0;
+  transition: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: start;
+  width: 100%;
+  overflow: hidden;
+
+  &:not(:first-of-type) {
+    border-top: 1px solid #f1f1f1;
+  }
+
+  &:hover {
+    background: $text-color;
+    color: white;
+  }
+
+  &.highlighted {
+    background: $border-color;
+    color: $text-color;
+
+    &:hover {
+      background: $text-color;
+      color: mix($border-color, $text-color, 66%);
+    }
+  }
+
+  &.favorite {
+    background: $primary-color;
+    color: white;
+
+    &.highlighted {
+      color: mix($border-color, $text-color, 66%);
+    }
+
+    &:hover {
+      background: $text-color;
+      color: mix($primary-color, white, 33%);
+    }
+  }
+}

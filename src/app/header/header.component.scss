@@ -1,12 +1,15 @@
+@import "imports";
+
 :host {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 1rem;
+  margin: dp(12) dp(12) 0;
+  user-select: none;
 }
 
 .appname {
-  font-size: 3rem;
+  font-size: dp(48);
   font-weight: 500;
   font-family: 'Fredericka the Great', cursive;
 }

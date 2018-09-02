@@ -1,31 +1,37 @@
+@import "imports";
+
 :host {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  margin: .5rem;
+  margin: dp(12) dp(6);
 }
 
 .button-group {
   display: flex;
+  justify-content: center;
 }
 
 .copy,
 .share,
 .clear {
   flex: 1;
-  height: 2.75rem;
-  color: white;
-  outline: none;
-  border: none;
-  background-color: #333;
-  cursor: pointer;
-  padding: 0.5rem;
+  margin: 0 dp(6);
+  background-color: $text-color;
+  padding: 0 dp(6);
   text-transform: uppercase;
-  margin: .5rem;
+}
+
+.share {
+  &.busy {
+    .material-icons {
+      animation: rotate 1s linear infinite;
+    }
+  }
 }
 
 .clear {
   color: white;
-  background-color: crimson;
+  background-color: $primary-color;
 }
 
 textarea {
@@ -35,5 +41,5 @@ textarea {
 }
 
 .material-icons {
-  margin-right: 0.25em;
+  margin-right: dp(8);
 }

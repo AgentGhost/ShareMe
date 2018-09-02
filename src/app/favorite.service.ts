@@ -1,41 +1,41 @@
 import { Injectable } from "@angular/core"
-import { ReplaySubject } from "rxjs"
-import { ListItem } from "./songlist.service"
+
+import { State } from "src/app/State"
+
+import { ListItem } from "./song.service"
 
 interface Favorites {
   [index: string]: any
 }
-
-const storageKey = "favorites"
 
 @Injectable({
   providedIn: "root",
 })
 export class FavoriteService {
 
-  private readonly subject = new ReplaySubject<Favorites>(1)
-  private favorites: Favorites = {}
+  public readonly storageKey = "favorites"
+  public readonly favorites = new State<Favorites>({})
 
   constructor() {
-    const restored = window.localStorage.getItem(storageKey)
+    const restored = window.localStorage.getItem(this.storageKey)
     if (restored) {
-      this.update(JSON.parse(restored))
+      this.favorites.value = JSON.parse(restored)
     } else {
-      this.update({})
+      this.favorites.value = {}
     }
-    this.subject.subscribe(favs => {
-      localStorage.setItem(storageKey, JSON.stringify(favs))
+    this.favorites.changes.subscribe(favs => {
+      localStorage.setItem(this.storageKey, JSON.stringify(favs))
     })
     window.addEventListener("storage", (event: StorageEvent) => {
-      if (event.key === storageKey) {
-        this.update(JSON.parse(event.newValue))
+      if (event.key === this.storageKey) {
+        this.favorites.value = JSON.parse(event.newValue) || {}
       }
     })
   }
 
   toggle(song: ListItem) {
     const key = song.fulltextSearch
-    const favs = this.favorites
+    const favs = this.favorites.value
 
     if (favs[key]) {
       delete favs[key]
@@ -43,15 +43,7 @@ export class FavoriteService {
       favs[key] = 1
     }
 
-    this.update(favs)
+    this.favorites.value = favs
   }
 
-  observe() {
-    return this.subject.asObservable()
-  }
-
-  update(favorites: Favorites) {
-    this.favorites = favorites
-    this.subject.next(favorites)
-  }
 }
