@@ -18,7 +18,7 @@ export const contents: Content[] = [
   {
     qualifier: "g",
     book: "Ich will dir danken!",
-    short: "Iwdd!",
+    short: "Iwdd",
     publisher: "Hänssler-Verlag, Bundes-Verlag",
     songs: Iwdd,
   },
