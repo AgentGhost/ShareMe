@@ -79,7 +79,8 @@
             }
           },
           "options": {
-            "browserTarget": "ShareMe:build"
+            "browserTarget": "ShareMe:build",
+            "open": true
           }
         },
         "test": {
