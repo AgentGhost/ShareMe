@@ -23,6 +23,18 @@
   margin: 0.5rem;
 }
 
+.share {
+  &.busy {
+    .material-icons {
+      @keyframes rotate {
+        from { transform: rotateY(0deg) }
+        to { transform: rotateY(360deg) }
+      }
+      animation: rotate 1s linear infinite;
+    }
+  }
+}
+
 .clear {
   color: white;
   background-color: crimson;
