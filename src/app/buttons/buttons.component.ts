@@ -5,6 +5,8 @@ import {
   ViewChild,
 } from "@angular/core"
 
+import { ReplaySubject } from "rxjs"
+
 import { SonglistService } from "src/app/songlist.service"
 
 @Component({
@@ -20,6 +22,8 @@ export class ButtonsComponent {
   readonly isCopySupported = document.queryCommandSupported && document.queryCommandSupported("copy")
   readonly isShareSupported = !!navigator["share"]
   readonly songs = this.songlist.observe()
+
+  sharing = new ReplaySubject<boolean>(1)
 
   constructor(
     private songlist: SonglistService,
@@ -49,10 +53,16 @@ export class ButtonsComponent {
     this.songlist.clear()
   }
 
-  share() {
-    navigator["share"]({ text: this.mark() })
-      .then(() => console.log("Successful share"))
-      .catch((error) => console.log("Error sharing", error))
+  async share() {
+    try {
+      this.sharing.next(true)
+      await navigator["share"]({ text: this.mark() })
+      console.log("Successful share")
+    } catch (error) {
+      console.log("Error sharing", error)
+    } finally {
+      this.sharing.next(false)
+    }
   }
 
 }
