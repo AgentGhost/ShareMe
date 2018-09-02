@@ -5,7 +5,7 @@ import { debounceTime, map, shareReplay } from "rxjs/operators"
 import scrollIntoView, { Options } from "scroll-into-view-if-needed"
 
 import { FavoriteService } from "src/app/favorite.service"
-import { ListItem, SonglistService } from "src/app/songlist.service"
+import { ListItem, SongService } from "src/app/song.service"
 import { SuggestionService } from "src/app/suggestion.service"
 
 const scrollOptions: Options = {
@@ -16,14 +16,14 @@ const scrollOptions: Options = {
 @Component({
   selector: "app-search",
   templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.scss"],
+  styleUrls: ["./search.component.scss", "./suggestions.scss"],
 })
 export class SearchComponent implements AfterViewInit {
 
   @ViewChild("inputElement") inputElement: ElementRef
 
-  readonly favorites = this.favlist.observe()
   readonly input = new FormControl()
+  readonly favoriteChanges = this.favoriteService.favorites.changes
   readonly suggestionChanges = this.input.valueChanges.pipe(
     debounceTime(100),
     map(this.suggestionsService.getSuggestions),
@@ -32,11 +32,11 @@ export class SearchComponent implements AfterViewInit {
 
   suggestions: ListItem[] = []
   highlightedSuggestion = 0
-  busy = false
+  editing = false
 
   constructor(
-    private favlist: FavoriteService,
-    private songlistService: SonglistService,
+    private favoriteService: FavoriteService,
+    private songService: SongService,
     private suggestionsService: SuggestionService,
   ) { }
 
@@ -44,32 +44,24 @@ export class SearchComponent implements AfterViewInit {
     this.clear()
     this.suggestionChanges.subscribe(suggestions => {
       this.suggestions = suggestions
-      this.busy = false
       this.inputElement.nativeElement.focus()
       this.highlightSuggestion(0)
       this.updateScroll()
     })
   }
 
-  clear() {
+  clear = () => {
     this.input.setValue("")
-    this.suggestions = []
-    this.busy = false
-    this.inputElement.nativeElement.focus()
   }
 
-  onKeydownEnter() {
-    this.addSong(this.suggestions[this.highlightedSuggestion])
-  }
-
-  addSong(song: ListItem) {
+  addSong = (song: ListItem) => {
+    this.clear()
     if (song) {
-      this.songlistService.add(song)
+      this.songService.add(song)
     }
-    this.input.setValue("")
   }
 
-  highlightSuggestion(index: number) {
+  highlightSuggestion = (index: number) => {
     if (index < 0) {
       this.highlightedSuggestion = this.suggestions.length - 1
     } else if (index >= this.suggestions.length) {
@@ -89,7 +81,7 @@ export class SearchComponent implements AfterViewInit {
     }
   }
 
-  trackSuggestion(index: number, item: ListItem) {
+  trackSuggestion = (index: number, item: ListItem) => {
     return item.fulltextSearch
   }
 

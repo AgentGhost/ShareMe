@@ -1,18 +1,27 @@
 <ng-container *ngIf="songs | async as songs">
 
-  <button type="button" class="clear" (click)="clear()" [class.disabled]="!songs.length">
+  <div class="button --filled clear" (click)="clear()">
     <i class="material-icons">delete_outline</i>
     <span *ngIf="!songs.length">Clear</span>
     <span *ngIf="songs.length">( {{ songs.length }} )</span>
-  </button>
+  </div>
 
   <div class="button-group">
-    <button type="button" class="share" (click)="share()" *ngIf="isShareSupported" [class.disabled]="!songs.length">
+    <div
+      *ngIf="isShareSupported"
+      class="button --filled share"
+      [class.busy]="sharing | async"
+      (click)="share()"
+    >
       <i class="material-icons">share</i>Share
-    </button>
-    <button type="button" class="copy" (click)="copy()" *ngIf="isCopySupported" [class.disabled]="!songs.length">
+    </div>
+    <div
+      *ngIf="isCopySupported"
+      class="button --filled copy"
+      (click)="copy()"
+    >
       <i class="material-icons">filter_none</i>Copy
-    </button>
+    </div>
   </div>
 
 </ng-container>

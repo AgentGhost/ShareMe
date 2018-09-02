@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core"
 
 import { contents } from "src/app/contents/Contents"
-import { ListItem } from "src/app/songlist.service"
+import { ListItem } from "src/app/song.service"
 
 const normalize = (input: string): string => {
   return input

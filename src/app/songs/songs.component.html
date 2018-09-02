@@ -1,12 +1,12 @@
 <ng-container *ngIf="favorites | async as favs">
   <div class="song" *ngFor="let song of songs | async; index as i">
-    <button class="remove" (click)="remove(i)">
+    <div class="button remove" (click)="remove(i)">
       <i class="material-icons">clear</i>
-    </button>
+    </div>
     <div class="name">{{ song.book }} {{ song.number }} – {{ song.name }}</div>
-    <button class="favorite" (click)="favorite(song)">
+    <div class="button favorite" (click)="favorite(song)">
       <i *ngIf="!favs[song.fulltextSearch]" class="material-icons">favorite_outline</i>
       <i *ngIf="favs[song.fulltextSearch]" class="material-icons">favorite</i>
-    </button>
+    </div>
   </div>
 </ng-container>

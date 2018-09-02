@@ -1,37 +1,38 @@
 <input
   type="text"
+  class="input"
   placeholder="Liednummer (z.B. b137 / g10)"
-  (keydown.enter)="onKeydownEnter()"
+  (keydown.enter)="addSong(suggestions[highlightedSuggestion])"
   (keydown.arrowup)="highlightSuggestion(highlightedSuggestion - 1); $event.preventDefault()"
   (keydown.arrowdown)="highlightSuggestion(highlightedSuggestion + 1); $event.preventDefault()"
+  (focus)="editing = true"
+  (blur)="editing = false"
   [formControl]="input"
   #inputElement
 >
 
-<button
+<ng-container *ngIf="suggestionChanges | async as suggestions">
+<ng-container *ngIf="favoriteChanges | async as favorites">
+
+<div
   *ngIf="inputElement.value"
-  type="button"
-  class="clear"
-  (click)="busy=true; clear()"
+  class="button clear"
+  (click)="clear()"
 >
   <i class="material-icons">clear</i>
-</button>
+</div>
 
-<ng-container *ngIf="favorites | async as favs">
-<ng-container *ngIf="suggestionChanges | async as suggestions">
-  
-<div class="suggestions" *ngIf="!busy && suggestions.length > 0">
+<div class="suggestions" *ngIf="editing && suggestions.length > 0">
   <div
-    *ngFor="let s of suggestions; index as i; trackBy: trackSuggestion"
-    tabindex="0"
+    *ngFor="let song of suggestions; index as i; trackBy: trackSuggestion"
     class="suggestion"
     [class.highlighted]="highlightedSuggestion === i"
-    [class.favorite]="favs[s.fulltextSearch]"
-    (click)="busy=true; addSong(s)"
+    [class.favorite]="favorites[song.fulltextSearch]"
+    (mousedown)="addSong(song)"
   >
-    {{ s.book }} {{ s.number }} – {{ s.name }}
+    {{ song.book }} {{ song.number }} – {{ song.name }}
   </div>
 </div>
-  
+
 </ng-container>
 </ng-container>

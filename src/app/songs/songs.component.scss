@@ -1,6 +1,8 @@
+@import "imports";
+
 :host {
   flex: 1;
-  margin: 1rem 1rem 0;
+  padding: 0 dp(20);
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -8,37 +10,33 @@
 .song {
   display: flex;
   align-items: center;
-  min-height: 2.25rem;
+  min-height: dp(40);
 }
 
 .name {
   flex: 1;
 }
 
-.remove, .favorite {
-  width: 1.75rem;
-  height: 1.75rem;
-  outline: none;
+.remove,
+.favorite {
+  width: dp(24);
+  height: dp(24);
   border: none;
-  cursor: pointer;
 }
 
 .remove {
-  margin-right: 1rem;
+  margin-right: dp(12);
   color: white;
-  background-color: crimson;
+  background-color: $primary-color;
 }
 
 .favorite {
-  margin-left: 1rem;
-  color: crimson;
+  margin-left: dp(12);
+  color: $primary-color;
   background-color: transparent;
-
-  display: flex;
-  box-align: center;
   box-shadow: none;
-  align-items: center;
-  justify-content: center;
+  filter: $drop-shadow;
+  transform: scale(1.2);
 }
 
 

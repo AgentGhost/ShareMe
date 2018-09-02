@@ -44,6 +44,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src"
+              ]
+            },
             "tsConfig": "src/tsconfig.app.json"
           }
         },
@@ -98,6 +103,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src"
+              ]
+            },
             "tsConfig": "src/tsconfig.spec.json"
           }
         }

@@ -3,86 +3,72 @@
 @import "~normalize-scss/sass/normalize/import-now";
 @import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great:400");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background: #f0f8ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-html,
-body,
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  border-radius: 3px;
-}
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+@import "imports";
+@import "keyframes";
 
 * {
   box-sizing: border-box;
 }
 
-button {
-  font-family: 'Fredericka the Great', cursive;
+html,
+body,
+.input,
+.button {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: dp(16);
   display: flex;
   align-items: center;
   justify-content: center;
-  user-select: none;
-  transition: ease-out .15s;
+}
+
+html,
+body {
+  height: 100%;
+  background: $theme-color;
+}
+
+.input,
+.button {
+  border-radius: $border-radius;
+  transition: ease-out 0.15s;
   position: relative;
-  box-shadow: 0 1px 2px #F1F1F1;
+  outline: none;
+}
 
-  &:active {
-    opacity: .33;
+.input {
+  height: dp(56);
+  padding: 0 dp(16);
+  font-size: dp(18);
+  transition: 0.15s ease-out;
+  border: 2px solid $text-color;
+  &::-webkit-input-placeholder {
+    user-select: none;
   }
 
-  &::after {
-    opacity: 0;
-    transition: ease-out .15s;
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    $bop: .5;
-    background-image: repeating-linear-gradient(100deg,
-    rgba(#F1F1F1,$bop),
-    rgba(#F1F1F1,$bop) 30px,
-    rgba(#dbdbdb,$bop) 30px,
-    rgba(#dbdbdb,$bop) 60px);
-  }
-
-  &.disabled {
-    pointer-events: none;
-
-    &::after {
-      opacity: 1;
-    }
+  &:focus {
+    border-color: $primary-color;
   }
 }
 
-input {
-  height: 3.0rem;
-  padding: 0 0.5rem;
-  font-size: 1rem;
-  outline: none;
-  transition: 0.15s ease-out;
-  border: 2px solid hsl(0, 0%, 40%);
+.button {
+  font-family: "Fredericka the Great", cursive;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: 0 1px 4px $shadow-color;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
-  &:focus {
-    border: 2px solid crimson;
+  &:active {
+    opacity: 0.33;
+  }
+
+  &.--filled {
+    height: dp(40);
+    padding: 0 dp(16);
+    color: white;
+    border: none;
   }
 }

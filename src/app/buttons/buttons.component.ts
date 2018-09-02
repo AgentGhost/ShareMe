@@ -5,7 +5,7 @@ import {
   ViewChild,
 } from "@angular/core"
 
-import { SonglistService } from "src/app/songlist.service"
+import { SongService } from "src/app/song.service"
 
 @Component({
   selector: "app-buttons",
@@ -19,14 +19,14 @@ export class ButtonsComponent {
 
   readonly isCopySupported = document.queryCommandSupported && document.queryCommandSupported("copy")
   readonly isShareSupported = !!navigator["share"]
-  readonly songs = this.songlist.observe()
+  readonly songs = this.songService.songs.changes
 
   constructor(
-    private songlist: SonglistService,
+    private songService: SongService,
   ) { }
 
   mark() {
-    const text = this.songlist.current
+    const text = this.songService.songs.value
       .map(song => [song.book, song.number, "-", song.name].join(" "))
       .join("\n")
     return text
@@ -46,7 +46,7 @@ export class ButtonsComponent {
   }
 
   clear() {
-    this.songlist.clear()
+    this.songService.clear()
   }
 
   share() {

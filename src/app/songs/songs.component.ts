@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core"
 
-import { SonglistService, ListItem } from "src/app/songlist.service"
-import { FavoriteService } from "../favorite.service"
+import { FavoriteService } from "src/app/favorite.service"
+import { ListItem, SongService } from "src/app/song.service"
 
 @Component({
   selector: "app-songs",
@@ -11,20 +11,20 @@ import { FavoriteService } from "../favorite.service"
 })
 export class SongsComponent {
 
-  readonly songs = this.songlist.observe()
-  readonly favorites = this.favlist.observe()
+  readonly songs = this.songService.songs.changes
+  readonly favorites = this.favoriteService.favorites.changes
 
   constructor(
-    private songlist: SonglistService,
-    private favlist: FavoriteService,
+    private songService: SongService,
+    private favoriteService: FavoriteService,
   ) { }
 
   remove(index: number) {
-    this.songlist.remove(index)
+    this.songService.remove(index)
   }
 
   favorite(song: ListItem) {
-    this.favlist.toggle(song)
+    this.favoriteService.toggle(song)
   }
 
 

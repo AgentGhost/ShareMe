@@ -1,6 +1,8 @@
+@import "imports";
+
 :host {
   position: relative;
-  margin: 0 1rem;
+  margin: dp(12);
 }
 
 input {
@@ -8,79 +10,18 @@ input {
 }
 
 .clear {
-  width: 3.0rem;
-  height: 3.0rem;
+  width: dp(56);
+  height: dp(56);
   border: 0;
   outline: 0;
-  cursor: pointer;
   background: transparent;
   position: absolute;
   top: 0;
   right: 0;
   box-shadow: none;
+  filter: $drop-shadow;
 
   &:hover {
-    color: crimson;
-  }
-}
-
-.suggestions {
-  position: absolute;
-  top: 100%;
-  display: block;
-  width: 100%;
-  border: solid #C1C1C1;
-  border-width: 1px;
-  background: white;
-  z-index: 1;
-  max-height: 50vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  border-radius: 3px;
-}
-
-.suggestion {
-  height: 2.75rem;
-  padding: 0 0.5rem;
-  background: transparent;
-  cursor: pointer;
-  outline: none;
-  border: 0;
-  transition: none;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: start;
-  width: 100%;
-  overflow: hidden;
-
-  &:not(:first-of-type) {
-    border-top: 1px solid #F1F1F1;
-  }
-
-  &:hover {
-    background: #333;
-    color: white;
-  }
-
-  &.highlighted {
-    background: #F1F1F1;
-    color: #333;
-
-    &:hover {
-      background: #333;
-      color: mix(#F1F1F1, #333, 67%);
-    }
-  }
-
-  &.favorite {
-    background: crimson;
-    color: white;
-
-    &:hover {
-      background: #333;
-      color: mix(crimson, white, 67%);
-    }
+    color: $primary-color;
   }
 }
