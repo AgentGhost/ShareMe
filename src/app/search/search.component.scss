@@ -57,17 +57,27 @@ input {
   overflow: hidden;
 
   &:hover {
-    background: black;
+    background: #333;
     color: white;
   }
 
   &.highlighted {
     background: #F1F1F1;
-    color: black;
+    color: #333;
 
     &:hover {
-      background: black;
-      color: #F1F1F1;
+      background: #333;
+      color: mix(#F1F1F1, #333, 67%);
+    }
+  }
+
+  &.favorite {
+    background: crimson;
+    color: white;
+
+    &:hover {
+      background: #333;
+      color: mix(crimson, white, 67%);
     }
   }
 }
