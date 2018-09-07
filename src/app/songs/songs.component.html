@@ -3,9 +3,11 @@
     <div class="button remove" (click)="remove(i)">
       <i class="material-icons">clear</i>
     </div>
-    <div *ngIf="!song.ccli" class="name">{{ song.book }} {{ song.number }} – {{ song.name }}</div>
-    <div *ngIf="song.ccli" class="name">
-      <a [attr.href]="'https://songselect.ccli.com/Songs/'+song.ccli">
+    <div class="name">
+      <span *ngIf="!song.ccli">
+        {{ song.book }} {{ song.number }} – {{ song.name }}
+      </span>
+      <a *ngIf="song.ccli" [attr.href]="'https://songselect.ccli.com/Songs/'+song.ccli" target="_blank" rel="noopener">
         {{ song.book }} {{ song.number }} – {{ song.name }}
       </a>
     </div>
