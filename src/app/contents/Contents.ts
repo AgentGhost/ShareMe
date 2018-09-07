@@ -3,7 +3,7 @@ import { Loben } from "./Loben"
 import { SongSelect } from "./SongSelect"
 
 export interface Song {
-  number: number
+  number?: number
   name: string
 }
 

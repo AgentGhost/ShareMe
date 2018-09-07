@@ -3,7 +3,12 @@
     <div class="button remove" (click)="remove(i)">
       <i class="material-icons">clear</i>
     </div>
-    <div class="name">{{ song.book }} {{ song.number }} – {{ song.name }}</div>
+    <div *ngIf="!song.ccli" class="name">{{ song.book }} {{ song.number }} – {{ song.name }}</div>
+    <div *ngIf="song.ccli" class="name">
+      <a [attr.href]="'https://songselect.ccli.com/Songs/'+song.ccli">
+        {{ song.book }} {{ song.number }} – {{ song.name }}
+      </a>
+    </div>
     <div class="button favorite" (click)="favorite(song)">
       <i *ngIf="!favs[song.fulltextSearch]" class="material-icons">favorite_outline</i>
       <i *ngIf="favs[song.fulltextSearch]" class="material-icons">favorite</i>

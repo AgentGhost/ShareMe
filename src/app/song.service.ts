@@ -4,8 +4,9 @@ import { State } from "src/app/State"
 
 export interface ListItem {
   book: string
-  number: number
+  number?: number
   name: string
+  ccli?: number
   fulltextSearch?: string
   qualifierSearch?: string
 }
