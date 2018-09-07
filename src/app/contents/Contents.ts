@@ -13,6 +13,7 @@ export interface Content {
   short: string
   publisher: string
   songs: Song[]
+  showIndex: boolean
 }
 
 export const contents: Content[] = [
@@ -22,6 +23,7 @@ export const contents: Content[] = [
     short: "Iwdd",
     publisher: "Hänssler-Verlag, Bundes-Verlag",
     songs: Iwdd,
+    showIndex: true,
   },
   {
     qualifier: "b",
@@ -29,6 +31,7 @@ export const contents: Content[] = [
     short: "Loben",
     publisher: "CLV",
     songs: Loben,
+    showIndex: true,
   },
   {
     qualifier: "p",
@@ -36,5 +39,6 @@ export const contents: Content[] = [
     short: "Leinwand",
     publisher: "SongSelect (CCLI)",
     songs: SongSelect,
+    showIndex: false,
   }
 ]
