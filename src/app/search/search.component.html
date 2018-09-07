@@ -1,7 +1,7 @@
 <input
   type="text"
   class="input"
-  placeholder="Liednummer (z.B. b137 / g10)"
+  placeholder="Liednummer (z.B. b137 / g10 / p1)"
   (keydown.enter)="addSong(suggestions[highlightedSuggestion])"
   (keydown.arrowup)="highlightSuggestion(highlightedSuggestion - 1); $event.preventDefault()"
   (keydown.arrowdown)="highlightSuggestion(highlightedSuggestion + 1); $event.preventDefault()"

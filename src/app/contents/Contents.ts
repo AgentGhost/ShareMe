@@ -1,5 +1,6 @@
 import { Iwdd } from "./Iwdd"
 import { Loben } from "./Loben"
+import { SongSelect } from "./SongSelect"
 
 export interface Song {
   number: number
@@ -29,4 +30,11 @@ export const contents: Content[] = [
     publisher: "CLV",
     songs: Loben,
   },
+  {
+    qualifier: "p",
+    book: "Powerpoint - Folien",
+    short: "Leinwand",
+    publisher: "SongSelect (CCLI)",
+    songs: SongSelect,
+  }
 ]
