@@ -3,6 +3,7 @@ import { Loben } from "./Loben"
 import { SongSelect } from "./SongSelect"
 
 export interface Song {
+  ccli?:number
   number?: number
   name: string
 }
