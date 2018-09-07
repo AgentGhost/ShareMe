@@ -12,6 +12,7 @@ function lookup(id: number | string, book: string, songs: Song[]): ListItem {
       book,
       number: song.number,
       name: song.name,
+      ccli: song.ccli,
     }
   }
   throw new Error("No such song: " + id)
@@ -27,12 +28,13 @@ function iwdd(id: number | string): ListItem {
 
 const service = new SuggestionService()
 
-function search(input: string) {
+function search(input: string): ListItem[] {
   return service.getSuggestions(input).map(result => {
     return {
       book: result.book,
       number: result.number,
       name: result.name,
+      ccli: result.ccli,
     }
   })
 }
