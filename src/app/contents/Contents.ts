@@ -3,7 +3,7 @@ import { Loben } from "./Loben"
 import { SongSelect } from "./SongSelect"
 
 export interface Song {
-  ccli?:number
+  ccli?: number
   number?: number
   name: string
 }
@@ -41,5 +41,5 @@ export const contents: Content[] = [
     publisher: "SongSelect (CCLI)",
     songs: SongSelect,
     showIndex: false,
-  }
+  },
 ]
