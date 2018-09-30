@@ -28,7 +28,7 @@ export const SongSelect: Song[] = [
     { number: 21, ccli: 4683243, name: "Was für ein Mensch" },
     // { number: 22, name: "" },
     { number: 23, ccli: 6028954, name: "Dort auf Golgatha stand einst ein alt raues Kreuz" },
-    { number: 23, ccli: 6028954, name: "The old rugged cross" },
+    { number: 23, ccli: 19722, name: "The old rugged cross" },
     { number: 24, ccli: 4344788, name: "Mein Jesus ich lieb' dich" },
     { number: 24, ccli: 27817, name: "My Jesus I love thee" },
     { number: 25, ccli: 4331784, name: "Herr, ich komme zu dir" },
