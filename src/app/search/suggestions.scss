@@ -1,4 +1,4 @@
-@import "imports";
+@import 'imports';
 
 .suggestions {
   position: absolute;
@@ -13,7 +13,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   border-radius: $border-radius;
-  animation: fade-in-down 0.15s ease-out;
+  animation: fade-in-down .15s ease-out;
 }
 
 .suggestion {
@@ -40,27 +40,38 @@
     color: white;
   }
 
-  &.highlighted {
-    background: $border-color;
-    color: $text-color;
-
-    &:hover {
-      background: $text-color;
-      color: mix($border-color, $text-color, 66%);
-    }
-  }
-
   &.favorite {
     background: $primary-color;
     color: white;
 
-    &.highlighted {
-      color: mix($border-color, $text-color, 66%);
-    }
-
     &:hover {
       background: $text-color;
-      color: mix($primary-color, white, 33%);
+      color: mix($primary-color, white, 50%);
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .suggestion {
+    &.highlighted {
+      background: rgba(black, .1);
+      color: $text-color;
+
+      &:hover {
+        background: $text-color;
+        color: mix($border-color, $text-color, 66%);
+      }
+    }
+
+    &.favorite {
+      &.highlighted {
+        color: mix($border-color, $text-color, 66%);
+      }
+
+      &:hover {
+        background: $text-color;
+        color: mix($primary-color, white, 50%);
+      }
     }
   }
 }
