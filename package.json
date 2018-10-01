@@ -24,6 +24,7 @@
     "@angular/service-worker": "^6.1.0",
     "copy-to-clipboard": "^3.0.8",
     "core-js": "^2.5.4",
+    "leven": "^2.1.0",
     "normalize-scss": "^7.0.1",
     "rxjs": "^6.0.0",
     "scroll-into-view-if-needed": "^2.2.16",

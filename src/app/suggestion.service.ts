@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core"
 
+import leven from "leven"
+
 import { contents } from "src/app/contents/Contents"
 import { ListItem } from "src/app/song.service"
 
@@ -44,7 +46,9 @@ export class SuggestionService {
       return []
     }
 
-    let result = allSuggestions.filter(suggestion => {
+    let result = []
+
+    result = allSuggestions.filter(suggestion => {
       return suggestion.qualifierSearch.startsWith(normalizedInput)
     })
 
@@ -54,6 +58,10 @@ export class SuggestionService {
         return words.every(word => {
           return suggestion.fulltextSearch.includes(word)
         })
+      })
+
+      result = result.sort((a, b) => {
+        return leven(a.fulltextSearch, input) - leven(b.fulltextSearch, input)
       })
     }
 
