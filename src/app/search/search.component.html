@@ -1,6 +1,10 @@
 <input
   type="text"
   class="input"
+  spellcheck="false"
+  autocorrect="off"
+  autocomplete="off"
+  autocapitalize="off"
   placeholder="Liednummer (z.B. b137 / g10 / p2)"
   (keydown.enter)="addSong(suggestions[highlightedSuggestion])"
   (keydown.arrowup)="highlightSuggestion(highlightedSuggestion - 1); $event.preventDefault()"
