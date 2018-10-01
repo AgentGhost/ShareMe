@@ -1,8 +1,10 @@
 import { Iwdd } from "./Iwdd"
 import { Loben } from "./Loben"
+import { SongSelect } from "./SongSelect"
 
 export interface Song {
-  number: number
+  ccli?: number
+  number?: number
   name: string
 }
 
@@ -12,6 +14,7 @@ export interface Content {
   short: string
   publisher: string
   songs: Song[]
+  showIndex: boolean
 }
 
 export const contents: Content[] = [
@@ -21,6 +24,7 @@ export const contents: Content[] = [
     short: "Iwdd",
     publisher: "Hänssler-Verlag, Bundes-Verlag",
     songs: Iwdd,
+    showIndex: true,
   },
   {
     qualifier: "b",
@@ -28,5 +32,14 @@ export const contents: Content[] = [
     short: "Loben",
     publisher: "CLV",
     songs: Loben,
+    showIndex: true,
+  },
+  {
+    qualifier: "p",
+    book: "Powerpoint - Folien",
+    short: "Leinwand",
+    publisher: "SongSelect (CCLI)",
+    songs: SongSelect,
+    showIndex: false,
   },
 ]

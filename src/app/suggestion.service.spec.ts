@@ -1,6 +1,7 @@
 import { Song, contents } from "src/app/contents/Contents"
 import { Iwdd } from "src/app/contents/Iwdd"
 import { Loben } from "src/app/contents/Loben"
+import { SongSelect } from "src/app/contents/SongSelect"
 import { ListItem } from "src/app/song.service"
 
 import { SuggestionService } from "./suggestion.service"
@@ -12,6 +13,7 @@ function lookup(id: number | string, book: string, songs: Song[]): ListItem {
       book,
       number: song.number,
       name: song.name,
+      ccli: song.ccli,
     }
   }
   throw new Error("No such song: " + id)
@@ -25,14 +27,19 @@ function iwdd(id: number | string): ListItem {
   return lookup(id, "Iwdd", Iwdd)
 }
 
+function songselect(id: number | string): ListItem {
+  return lookup(id, "Leinwand", SongSelect)
+}
+
 const service = new SuggestionService()
 
-function search(input: string) {
+function search(input: string): ListItem[] {
   return service.getSuggestions(input).map(result => {
     return {
       book: result.book,
       number: result.number,
       name: result.name,
+      ccli: result.ccli,
     }
   })
 }
@@ -69,7 +76,9 @@ describe("Suchvorschläge:", () => {
         iwdd("Dort auf Golgatha stand (Schätzen werd ich das alt rauhe Kreuz)"),
         loben("Auf dem Hügel Golgatha"),
         loben("Für mich gingst du nach Golgatha"),
+        songselect("Dort auf Golgatha stand einst ein alt raues Kreuz"),
       ]
+      console.log(results, expected)
       expect(results).toEqual(expected)
     })
 

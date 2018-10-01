@@ -18,6 +18,7 @@ const listOfSongLists = contents
       book: content.short,
       number: song.number,
       name: song.name,
+      ccli: song.ccli,
     }
     const keywords = [
       content.qualifier,
