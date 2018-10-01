@@ -28,7 +28,7 @@ function iwdd(id: number | string): ListItem {
 }
 
 function songselect(id: number | string): ListItem {
-  return lookup(id, "SongSelect", SongSelect)
+  return lookup(id, "Leinwand", SongSelect)
 }
 
 const service = new SuggestionService()
@@ -78,6 +78,7 @@ describe("Suchvorschläge:", () => {
         loben("Für mich gingst du nach Golgatha"),
         songselect("Dort auf Golgatha stand einst ein alt raues Kreuz"),
       ]
+      console.log(results, expected)
       expect(results).toEqual(expected)
     })
 
