@@ -27,6 +27,7 @@ export class SearchComponent implements AfterViewInit {
   readonly suggestionChanges = this.input.valueChanges.pipe(
     debounceTime(100),
     map(this.suggestionsService.getSuggestions),
+    map(results => results.slice(0, 30)),
     shareReplay(),
   )
 
