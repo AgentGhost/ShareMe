@@ -4,7 +4,7 @@
 </h1>
 
 <p align="center">
-  An app for quickly searching and sharing songs with your church group. 
+  An app for quickly searching and sharing songbook entries with your church group. <br>
   You no longer have to retype their titles over and over again.
 </p>
 
