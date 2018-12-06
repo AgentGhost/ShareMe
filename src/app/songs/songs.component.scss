@@ -1,5 +1,5 @@
 @import "imports";
-@import "./dragula";
+@import "~dragula/dist/dragula.css";
 
 :host {
   flex: 1;
@@ -13,6 +13,11 @@
   display: flex;
   align-items: center;
   min-height: dp(40);
+  cursor: grab;
+
+  &.gu-mirror {
+    cursor: grabbing;
+  }
 }
 
 .name {
