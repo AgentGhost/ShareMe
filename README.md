@@ -24,6 +24,16 @@
   Works best on 'chrome for android'.
 </p>
 
+# Explanatory notes
+
+<p align="left">
+  'g' means 'green book' = Ich will dir danken (Iwdd) <br>
+  'b' means 'blue book' = Loben <br>
+  'p' means 'powerpoint song' (church related) <br>
+  <br>
+  You can always change the internal data by editing Contents.ts and subscripts in /src/app/contents to your preferences.
+</p>
+
 # Devs
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
