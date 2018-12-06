@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing"
 
+import { DragulaModule } from "ng2-dragula"
+
 import { SongsComponent } from "./songs.component"
 
 describe("SongsComponent", () => {
@@ -8,6 +10,9 @@ describe("SongsComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        DragulaModule.forRoot(),
+      ],
       declarations: [SongsComponent],
     })
       .compileComponents()

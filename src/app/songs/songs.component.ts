@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core"
 
+import { DragulaService } from "ng2-dragula"
+
 import { FavoriteService } from "src/app/favorite.service"
 import { ListItem, SongService } from "src/app/song.service"
 
@@ -15,9 +17,12 @@ export class SongsComponent {
   readonly favorites = this.favoriteService.favorites.changes
 
   constructor(
+    dragulaService: DragulaService,
     private songService: SongService,
     private favoriteService: FavoriteService,
-  ) { }
+  ) {
+    dragulaService.createGroup("SONGS", {})
+  }
 
   remove(index: number) {
     this.songService.remove(index)
@@ -27,5 +32,8 @@ export class SongsComponent {
     this.favoriteService.toggle(song)
   }
 
+  updateOrder(songs: ListItem[]) {
+    this.songService.songs.value = songs
+  }
 
 }
