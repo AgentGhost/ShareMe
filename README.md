@@ -29,7 +29,7 @@
 <p align="left">
   To get sure to have the actual version of ShareMe, just reload the page in the desktop app on your device. <br>
   <br>
-  You can search for songs by title or alternativly add a song from a specific book or list by typing in the placeholder for that database together with the number of the song.
+  You can search for songs by title or alternativly add a song from a specific book or list by typing in the placeholder for that database together with the number of the song. <br>
   'g' means 'green book' = Ich will dir danken (Iwdd) <br>
   'b' means 'blue book' = Loben <br>
   'p' means 'powerpoint song' (church related) <br>
