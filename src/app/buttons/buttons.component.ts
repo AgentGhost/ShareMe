@@ -1,11 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  ViewChild,
-} from "@angular/core"
+import { ChangeDetectionStrategy, Component } from "@angular/core"
 
 import { SongService } from "src/app/song.service"
+
+import { copyToClipboard } from "./copyToClipboard"
 
 @Component({
   selector: "app-buttons",
@@ -15,8 +12,6 @@ import { SongService } from "src/app/song.service"
 })
 export class ButtonsComponent {
 
-  @ViewChild("textareaElement") textareaElement: ElementRef
-
   readonly isCopySupported = document.queryCommandSupported && document.queryCommandSupported("copy")
   readonly isShareSupported = !!navigator["share"]
   readonly songs = this.songService.songs.changes
@@ -25,7 +20,7 @@ export class ButtonsComponent {
     private songService: SongService,
   ) { }
 
-  mark() {
+  songlistToString() {
     const text = this.songService.songs.value
       .map(song => [song.book, song.number, "-", song.name].join(" "))
       .join("\n")
@@ -34,11 +29,7 @@ export class ButtonsComponent {
 
   copy() {
     try {
-      const textarea = this.textareaElement.nativeElement
-      textarea.value = this.mark()
-      textarea.select()
-      textarea.blur()
-      document.execCommand("copy")
+      copyToClipboard(this.songlistToString())
       console.log("Successful copy")
     } catch (error) {
       console.log("Error copying", error)
@@ -50,7 +41,7 @@ export class ButtonsComponent {
   }
 
   share() {
-    navigator["share"]({ text: this.mark() })
+    navigator["share"]({ text: this.songlistToString() })
       .then(() => console.log("Successful share"))
       .catch((error) => console.log("Error sharing", error))
   }
