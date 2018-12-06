@@ -24,7 +24,7 @@
   Works best on 'chrome for android'.
 </p>
 
-# Explanatory notes
+# Explanatory notes2
 
 <p align="left">
   'g' means 'green book' = Ich will dir danken (Iwdd) <br>
