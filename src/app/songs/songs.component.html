@@ -2,7 +2,7 @@
 <ng-container *ngIf="songs | async as songs">
 
 <div dragula="SONGS" [dragulaModel]="songs" (dragulaModelChange)="updateOrder($event)">
-  <div class="song" *ngFor="let song of songs; index as i">
+  <div class="gu song" *ngFor="let song of songs; index as i">
     <div class="button remove" (click)="remove(i)">
       <i class="material-icons">clear</i>
     </div>

@@ -1,4 +1,14 @@
-/* in-flight clone */
+// draggable element
+.gu {
+  cursor: move;
+  cursor: grab;
+
+  &.gu-mirror {
+    cursor: grabbing;
+  }
+}
+
+// in-flight clone
 .gu-mirror {
   position: fixed !important;
   margin: 0 !important;
@@ -7,15 +17,18 @@
   filter: alpha(opacity=80);
   pointer-events: none;
 }
-/* high-performance display:none; helper */
+
+// high-performance display:none; helper
 .gu-hide {
   left: -9999px !important;
 }
-/* added to mirrorContainer (default = body) while dragging */
+
+// added to mirrorContainer (default = body) while dragging
 .gu-unselectable {
   user-select: none !important;
 }
-/* added to the source element while its mirror is dragged */
+
+// added to the source element while its mirror is dragged
 .gu-transit {
   opacity: 0.2;
   filter: alpha(opacity=20);
