@@ -1,6 +1,8 @@
 import { async, TestBed } from "@angular/core/testing"
 import { ReactiveFormsModule } from "@angular/forms"
 
+import { DragulaModule } from "ng2-dragula"
+
 import { AppComponent } from "./app.component"
 import { ButtonsComponent } from "./buttons/buttons.component"
 import { HeaderComponent } from "./header/header.component"
@@ -12,6 +14,7 @@ describe("AppComponent", () => {
     TestBed.configureTestingModule({
       imports: [
         ReactiveFormsModule,
+        DragulaModule.forRoot(),
       ],
       declarations: [
         AppComponent,

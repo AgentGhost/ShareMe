@@ -1,16 +1,23 @@
 @import "imports";
+@import "~dragula/dist/dragula.css";
 
 :host {
   flex: 1;
   padding: 0 dp(20);
   overflow-x: hidden;
   overflow-y: auto;
+  touch-action: none;
 }
 
 .song {
   display: flex;
   align-items: center;
   min-height: dp(40);
+  cursor: grab;
+
+  &.gu-mirror {
+    cursor: grabbing;
+  }
 }
 
 .name {
@@ -22,7 +29,7 @@
     border-bottom: 1px dashed rgba($text-color, .25);
     transition: .1s ease-out;
     &:hover {
-      border-bottom: 1px solid $primary-color;      
+      border-bottom: 1px solid $primary-color;
     }
   }
 }
@@ -48,8 +55,3 @@
   filter: $drop-shadow;
   transform: scale(1.25);
 }
-
-
-
-
-

@@ -3,6 +3,8 @@ import { ReactiveFormsModule } from "@angular/forms"
 import { BrowserModule } from "@angular/platform-browser"
 import { ServiceWorkerModule } from "@angular/service-worker"
 
+import { DragulaModule } from "ng2-dragula"
+
 import { environment } from "../environments/environment"
 
 import { AppComponent } from "./app.component"
@@ -16,6 +18,7 @@ import { SongsComponent } from "./songs/songs.component"
     BrowserModule,
     ServiceWorkerModule.register("ngsw-worker.js", { enabled: environment.production }),
     ReactiveFormsModule,
+    DragulaModule.forRoot(),
   ],
   declarations: [
     AppComponent,
