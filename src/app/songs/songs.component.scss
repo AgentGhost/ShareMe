@@ -16,7 +16,8 @@
   cursor: grab;
 
   &.gu-mirror,
-  &:active {
+  &:active,
+  &.--active {
     cursor: grabbing;
   }
 }
