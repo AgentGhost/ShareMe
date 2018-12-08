@@ -22,6 +22,9 @@ export class SongsComponent {
     private favoriteService: FavoriteService,
   ) {
     dragulaService.createGroup("SONGS", {})
+
+    /** prevent scrolling on mobile */
+    document.addEventListener("touchmove", e => e.preventDefault(), { passive: false })
   }
 
   remove(index: number) {
