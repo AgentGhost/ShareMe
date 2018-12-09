@@ -15,11 +15,9 @@
   min-height: dp(40);
   cursor: grab;
 
-  &:active {
-    cursor: grabbing;
-  }
-
-  &.gu-mirror {
+  &.gu-mirror,
+  &:active,
+  &.--active {
     cursor: grabbing;
   }
 }
