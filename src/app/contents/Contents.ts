@@ -1,5 +1,6 @@
 import { Iwdd } from "./Iwdd"
 import { Loben } from "./Loben"
+import { SuG } from "./SuG"
 import { SongSelect } from "./SongSelect"
 
 export interface Song {
@@ -32,6 +33,14 @@ export const contents: Content[] = [
     short: "Loben",
     publisher: "CLV",
     songs: Loben,
+    showIndex: true,
+  }, 
+  {
+    qualifier: "s",
+    book: "Seht unsern Gott",
+    short: "SuG",
+    publisher: "Evangelium21 e.V.",
+    songs: SuG,
     showIndex: true,
   },
   {
