@@ -7,16 +7,15 @@ import { SearchComponent } from "./search/search.component"
 import { SongsComponent } from "./songs/songs.component"
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"],
-  standalone: true,
-  imports: [
-    CommonModule,
-    ButtonsComponent,
-    HeaderComponent,
-    SearchComponent,
-    SongsComponent
-  ]
+    selector: "app-root",
+    templateUrl: "./app.component.html",
+    styleUrls: ["./app.component.scss"],
+    imports: [
+        CommonModule,
+        ButtonsComponent,
+        HeaderComponent,
+        SearchComponent,
+        SongsComponent
+    ]
 })
 export class AppComponent { }

@@ -6,12 +6,11 @@ import { SongService } from "src/app/song.service"
 import { copyToClipboard } from "./copyToClipboard"
 
 @Component({
-  selector: "app-buttons",
-  templateUrl: "./buttons.component.html",
-  styleUrls: ["./buttons.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule]
+    selector: "app-buttons",
+    templateUrl: "./buttons.component.html",
+    styleUrls: ["./buttons.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule]
 })
 export class ButtonsComponent {
 

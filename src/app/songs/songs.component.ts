@@ -6,12 +6,11 @@ import { FavoriteService } from "src/app/favorite.service"
 import { ListItem, SongService } from "src/app/song.service"
 
 @Component({
-  selector: "app-songs",
-  templateUrl: "./songs.component.html",
-  styleUrls: ["./songs.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, DragulaModule]
+    selector: "app-songs",
+    templateUrl: "./songs.component.html",
+    styleUrls: ["./songs.component.scss"],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, DragulaModule]
 })
 export class SongsComponent {
 

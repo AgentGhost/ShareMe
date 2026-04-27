@@ -15,11 +15,10 @@ const scrollOptions = {
 }
 
 @Component({
-  selector: "app-search",
-  templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.scss", "./suggestions.scss"],
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule]
+    selector: "app-search",
+    templateUrl: "./search.component.html",
+    styleUrls: ["./search.component.scss", "./suggestions.scss"],
+    imports: [CommonModule, ReactiveFormsModule]
 })
 export class SearchComponent implements AfterViewInit {
 
