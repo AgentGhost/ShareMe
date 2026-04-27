@@ -1,0 +1,46 @@
+# Dependabot configuration for ShareMe
+# Automatically detects and creates PRs for vulnerable/outdated dependencies
+
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "security"
+    reviewers:
+      - "AgentGhost"
+    versioning-strategy: increase
+    ignore:
+      # Ignore Angular major version bumps (require manual handling)
+      - dependency-name: "@angular/*"
+        update-types: ["major"]
+      # Ignore TypeScript major version bumps
+      - dependency-name: "typescript"
+        update-types: ["major"]
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "ci"
+      - "dependencies"
