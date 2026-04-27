@@ -3,6 +3,10 @@
     "outDir": "../out-tsc/app",
     "types": []
   },
-  "exclude": ["src/test.ts", "**/*.spec.ts"],
-  "extends": "../tsconfig.json"
+  "extends": "../tsconfig.json",
+  "exclude": [
+    "environments/**",
+    "test.ts",
+    "**/*.spec.ts"
+  ]
 }

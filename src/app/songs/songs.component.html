@@ -16,8 +16,8 @@
       </a>
     </div>
     <div class="button favorite" (click)="favorite(song)">
-      <i *ngIf="!favorites[song.fulltextSearch]" class="material-icons">favorite_outline</i>
-      <i *ngIf="favorites[song.fulltextSearch]" class="material-icons">favorite</i>
+      <i *ngIf="!favorites[song.fulltextSearch || '']" class="material-icons">favorite_outline</i>
+      <i *ngIf="favorites[song.fulltextSearch || '']" class="material-icons">favorite</i>
     </div>
   </div>
 </div>

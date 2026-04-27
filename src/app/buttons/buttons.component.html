@@ -10,7 +10,6 @@
     <div
       *ngIf="isShareSupported"
       class="button --filled share"
-      [class.busy]="sharing | async"
       (click)="share()"
     >
       <i class="material-icons">share</i>Share

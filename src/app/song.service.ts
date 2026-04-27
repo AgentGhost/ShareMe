@@ -9,6 +9,7 @@ export interface ListItem {
   ccli?: number
   fulltextSearch?: string
   qualifierSearch?: string
+  active?: boolean
 }
 
 @Injectable({

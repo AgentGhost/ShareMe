@@ -1,26 +1,29 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core"
-import { FormControl } from "@angular/forms"
+import { FormControl, ReactiveFormsModule } from "@angular/forms"
+import { CommonModule } from "@angular/common"
 
 import { debounceTime, map, shareReplay } from "rxjs/operators"
-import scrollIntoView, { Options } from "scroll-into-view-if-needed"
+import scrollIntoViewIfNeeded from "scroll-into-view-if-needed"
 
 import { FavoriteService } from "src/app/favorite.service"
 import { ListItem, SongService } from "src/app/song.service"
 import { SuggestionService } from "src/app/suggestion.service"
 
-const scrollOptions: Options = {
-  block: "nearest",
-  scrollMode: "if-needed",
+const scrollOptions = {
+  block: "nearest" as const,
+  scrollMode: "if-needed" as const,
 }
 
 @Component({
   selector: "app-search",
   templateUrl: "./search.component.html",
   styleUrls: ["./search.component.scss", "./suggestions.scss"],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule]
 })
 export class SearchComponent implements AfterViewInit {
 
-  @ViewChild("inputElement") inputElement: ElementRef
+  @ViewChild("inputElement") inputElement!: ElementRef
 
   readonly input = new FormControl()
   readonly favoriteChanges = this.favoriteService.favorites.changes
@@ -78,7 +81,7 @@ export class SearchComponent implements AfterViewInit {
     const el: any = document.querySelector(selector)
 
     if (el) {
-      scrollIntoView(el, scrollOptions)
+      scrollIntoViewIfNeeded(el, scrollOptions)
     }
   }
 

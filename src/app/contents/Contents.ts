@@ -2,6 +2,7 @@ import { Iwdd } from "./Iwdd"
 import { Loben } from "./Loben"
 import { SuG } from "./SuG"
 import { SongSelect } from "./SongSelect"
+import { Glorify } from "./Glorify"
 
 export interface Song {
   ccli?: number
@@ -50,5 +51,13 @@ export const contents: Content[] = [
     publisher: "SongSelect (CCLI)",
     songs: SongSelect,
     showIndex: false,
+  },
+  {
+    qualifier: "n",
+    book: "Glorify - Jugendlieder zur Ehre Gottes",
+    short: "Glorify",
+    publisher: "SCM-Verlag",
+    songs: Glorify,
+    showIndex: true,
   },
 ]

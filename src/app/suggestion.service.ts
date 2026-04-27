@@ -31,14 +31,14 @@ const listOfSongLists = contents
     return selection
   }))
 
-const allSuggestions: ListItem[] = [].concat(...listOfSongLists)
+const allSuggestions: ListItem[] = Array.prototype.concat(...listOfSongLists as ListItem[][])
 
 @Injectable({
   providedIn: "root",
 })
 export class SuggestionService {
 
-  getSuggestions = (input: string): ListItem[] => {
+  getSuggestions(input: string): ListItem[] {
     const normalizedInput = normalize(input || "")
 
     if (!normalizedInput) {
@@ -46,14 +46,14 @@ export class SuggestionService {
     }
 
     let result = allSuggestions.filter(suggestion => {
-      return suggestion.qualifierSearch.startsWith(normalizedInput)
+      return suggestion.qualifierSearch?.startsWith(normalizedInput)
     })
 
     if (result.length === 0) {
       const words = normalize(input || "").split(" ")
       result = allSuggestions.filter(suggestion => {
         return words.every(word => {
-          return suggestion.fulltextSearch.includes(word)
+          return suggestion.fulltextSearch?.includes(word)
         })
       })
     }

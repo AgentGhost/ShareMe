@@ -3,10 +3,12 @@ import { ReplaySubject } from "rxjs"
 export class State<T = any> {
 
   private readonly subject = new ReplaySubject<T>(1)
-  private _value: T
+  private _value!: T
 
   constructor(value?: T) {
-    this.value = value
+    if (value !== undefined) {
+      this.value = value
+    }
   }
 
   get value() {

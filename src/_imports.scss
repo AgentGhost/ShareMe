@@ -1,5 +1,5 @@
 @function dp($dp) {
-  @return ($dp / 16) + rem;
+  @return calc(#{$dp} / 16 * 1rem);
 }
 
 $theme-color:   #708090;

@@ -31,7 +31,7 @@
     *ngFor="let song of suggestions; index as i; trackBy: trackSuggestion"
     class="suggestion"
     [class.highlighted]="highlightedSuggestion === i"
-    [class.favorite]="favorites[song.fulltextSearch]"
+    [class.favorite]="favorites[song.fulltextSearch || '']"
     (mousedown)="addSong(song)"
   >
     {{ song.book }} {{ song.number }} – {{ song.name }}

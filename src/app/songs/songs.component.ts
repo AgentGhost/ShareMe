@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core"
-
-import { DragulaService } from "ng2-dragula"
+import { CommonModule } from "@angular/common"
+import { DragulaModule, DragulaService } from "ng2-dragula"
 
 import { FavoriteService } from "src/app/favorite.service"
 import { ListItem, SongService } from "src/app/song.service"
@@ -10,6 +10,8 @@ import { ListItem, SongService } from "src/app/song.service"
   templateUrl: "./songs.component.html",
   styleUrls: ["./songs.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, DragulaModule]
 })
 export class SongsComponent {
 

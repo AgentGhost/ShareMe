@@ -1,3 +1,4 @@
+import { CommonModule } from "@angular/common"
 import { ChangeDetectionStrategy, Component } from "@angular/core"
 
 import { SongService } from "src/app/song.service"
@@ -9,6 +10,8 @@ import { copyToClipboard } from "./copyToClipboard"
   templateUrl: "./buttons.component.html",
   styleUrls: ["./buttons.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule]
 })
 export class ButtonsComponent {
 

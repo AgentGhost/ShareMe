@@ -27,19 +27,19 @@ export class FavoriteService {
       localStorage.setItem(this.storageKey, JSON.stringify(favs))
     })
     window.addEventListener("storage", (event: StorageEvent) => {
-      if (event.key === this.storageKey) {
+      if (event.key === this.storageKey && event.newValue) {
         this.favorites.value = JSON.parse(event.newValue) || {}
       }
     })
   }
 
   toggle(song: ListItem) {
-    const key = song.fulltextSearch
+    const key = song.fulltextSearch as string
     const favs = this.favorites.value
 
-    if (favs[key]) {
+    if (key && favs[key]) {
       delete favs[key]
-    } else {
+    } else if (key) {
       favs[key] = 1
     }
 
