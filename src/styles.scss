@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
+@use "imports" as *;
+@use "keyframes";
+
 @import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great:400");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css?family=Raleway");
-@import "imports";
-@import "keyframes";
 
 * {
   box-sizing: border-box;

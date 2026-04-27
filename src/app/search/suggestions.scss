@@ -1,4 +1,5 @@
-@import 'imports';
+@use "imports" as *;
+@use "sass:color";
 
 .suggestions {
   position: absolute;
@@ -46,7 +47,7 @@
 
     &:hover {
       background: $text-color;
-      color: mix($primary-color, white, 50%);
+      color: color.mix($primary-color, white, 50%);
     }
   }
 }
@@ -59,18 +60,18 @@
 
       &:hover {
         background: $text-color;
-        color: mix($border-color, $text-color, 66%);
+        color: color.mix($border-color, $text-color, 66%);
       }
     }
 
     &.favorite {
       &.highlighted {
-        color: mix($border-color, $text-color, 66%);
+        color: color.mix($border-color, $text-color, 66%);
       }
 
       &:hover {
         background: $text-color;
-        color: mix($primary-color, white, 50%);
+        color: color.mix($primary-color, white, 50%);
       }
     }
   }
