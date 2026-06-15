@@ -18,7 +18,7 @@
     "@angular/platform-browser": "^19.2.21",
     "@angular/platform-browser-dynamic": "^19.2.21",
     "@angular/router": "^19.2.21",
-    "@angular/service-worker": "^19.2.21",
+    "@angular/service-worker": "^19.2.23",
     "dragula": "^3.7.3",
     "ng2-dragula": "^5.0.0",
     "rxjs": "~7.8.0",
