@@ -4,6 +4,10 @@
     "types": []
   },
   "extends": "../tsconfig.json",
+  "include": [
+    "**/*.d.ts",
+    "**/*.ts"
+  ],
   "exclude": [
     "environments/**",
     "**/*.spec.ts"
