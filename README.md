@@ -9,10 +9,10 @@
 </p>
 
 <p align="center">
-  <a href="https://app.netlify.com/sites/shareme/deploys">
-    <img alt="Netlify Deploys" src="https://img.shields.io/badge/deploys-shareme-00AD9F.svg?logo=netlify">
+  <a href="https://github.com/AgentGhost/ShareMe/actions/workflows/ci.yml">
+    <img alt="CI" src="https://github.com/AgentGhost/ShareMe/actions/workflows/ci.yml/badge.svg">
   </a>
-  <a href="https://shareme.netlify.com">
+  <a href="https://agentghost.github.io/ShareMe/">
     <img alt="App" src="https://img.shields.io/badge/app-shareme-crimson.svg?logo=angular">
   </a>
 </p>
