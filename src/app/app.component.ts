@@ -1,5 +1,4 @@
 import { Component } from "@angular/core"
-import { ServiceWorkerModule } from "@angular/service-worker"
 import { CommonModule } from "@angular/common"
 import { ButtonsComponent } from "./buttons/buttons.component"
 import { HeaderComponent } from "./header/header.component"
