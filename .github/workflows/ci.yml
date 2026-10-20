@@ -42,6 +42,11 @@ jobs:
     if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-latest
+    # GitHub Pages accepts one deployment at a time; serialize deploys so
+    # rapid consecutive pushes deploy the newest build instead of 400ing.
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
     permissions:
       pages: write
       id-token: write
