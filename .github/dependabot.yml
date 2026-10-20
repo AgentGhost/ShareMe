@@ -24,10 +24,10 @@ updates:
     ignore:
       # Ignore Angular major version bumps (require manual handling)
       - dependency-name: "@angular/*"
-        update-types: ["major"]
+        update-types: ["version-update:semver-major"]
       # Ignore TypeScript major version bumps
       - dependency-name: "typescript"
-        update-types: ["major"]
+        update-types: ["version-update:semver-major"]
 
   # Enable version updates for GitHub Actions
   - package-ecosystem: "github-actions"
