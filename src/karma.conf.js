@@ -1,3 +1,17 @@
+// Resolve Chrome on Windows when CHROME_BIN is not set (karma-chrome-launcher
+// only auto-detects on Linux/macOS).
+if (!process.env.CHROME_BIN && process.platform === "win32") {
+  const fs = require("fs")
+  const candidates = [
+    "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+  ]
+  const found = candidates.find(path => fs.existsSync(path))
+  if (found) {
+    process.env.CHROME_BIN = found
+  }
+}
+
 module.exports = function(config) {
   config.set({
     basePath: "",
@@ -20,13 +34,7 @@ module.exports = function(config) {
     customLaunchers: {
       ChromeHeadlessCI: {
         base: "ChromeHeadless",
-        flags: [
-          "--no-sandbox",
-          "--disable-gpu",
-          "--disable-translate",
-          "--disable-extensions",
-          "--remote-debugging-port=9222"
-        ],
+        flags: ["--no-sandbox"],
       },
     },
     singleRun: true,

@@ -5,8 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "set CHROME_BIN=C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe&& ng test --no-watch --no-progress",
-    "lint": "ng lint"
+    "test": "ng test --no-watch --no-progress"
   },
   "private": true,
   "dependencies": {
@@ -20,7 +19,7 @@
     "@angular/router": "^19.2.21",
     "@angular/service-worker": "^19.2.21",
     "dragula": "^3.7.3",
-    "ng2-dragula": "^5.0.0",
+    "ng2-dragula": "^9.0.0",
     "rxjs": "~7.8.0",
     "scroll-into-view-if-needed": "^3.1.0",
     "tslib": "^2.6.0",
