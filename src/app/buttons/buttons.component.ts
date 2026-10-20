@@ -16,7 +16,8 @@ export class ButtonsComponent {
   private songService = inject(SongService);
 
 
-  readonly isCopySupported = document.queryCommandSupported && document.queryCommandSupported("copy")
+  readonly isCopySupported =
+    "clipboard" in navigator || Boolean(document.queryCommandSupported?.("copy"))
   // Web Share works well on mobile browsers (the app's primary target).
   // Desktop Chrome exposes navigator.share too, but the OS share sheet has
   // no text targets and opens broken — so only offer Share on touch devices.
@@ -32,12 +33,9 @@ export class ButtonsComponent {
   }
 
   copy() {
-    try {
-      copyToClipboard(this.songlistToString())
-      console.log("Successful copy")
-    } catch (error) {
-      console.log("Error copying", error)
-    }
+    copyToClipboard(this.songlistToString())
+      .then(() => console.log("Successful copy"))
+      .catch((error) => console.log("Error copying", error))
   }
 
   clear() {

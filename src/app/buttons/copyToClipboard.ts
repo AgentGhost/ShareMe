@@ -1,4 +1,23 @@
-export function copyToClipboard(text: string) {
+/**
+ * Copy text to the clipboard.
+ *
+ * Prefers the async Clipboard API (secure contexts, all modern browsers)
+ * and falls back to the legacy execCommand path where it is unavailable
+ * or rejects (older iOS Safari, denied permission).
+ */
+export async function copyToClipboard(text: string): Promise<void> {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text)
+      return
+    } catch {
+      // Fall through to the legacy path.
+    }
+  }
+  legacyCopy(text)
+}
+
+function legacyCopy(text: string) {
   withTemporaryTextarea(el => {
     el.value = text
 
@@ -49,7 +68,9 @@ function withTemporaryTextarea(action: (el: HTMLTextAreaElement) => void) {
   el.style.left = "-9999px"
   document.body.appendChild(el)
 
-  action(el)
-
-  document.body.removeChild(el)
+  try {
+    action(el)
+  } finally {
+    document.body.removeChild(el)
+  }
 }
