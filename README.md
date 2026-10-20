@@ -9,9 +9,6 @@
 </p>
 
 <p align="center">
-  <a href="https://travis-ci.com/AgentGhost/ShareMe">
-    <img alt="Build Status" src="https://travis-ci.com/AgentGhost/ShareMe.svg?branch=master">
-  </a>
   <a href="https://app.netlify.com/sites/shareme/deploys">
     <img alt="Netlify Deploys" src="https://img.shields.io/badge/deploys-shareme-00AD9F.svg?logo=netlify">
   </a>
@@ -39,7 +36,7 @@
 
 # Devs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
+This project uses [Angular CLI](https://github.com/angular/angular-cli) (currently Angular 19).
 
 ## Development server
 
@@ -51,15 +48,15 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use `--configuration production` for a production build. Production builds also generate the service worker (`ngsw-worker.js` / `ngsw.json`) from `ngsw-config.json`.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io). On Windows, Chrome is auto-detected; set `CHROME_BIN` to override.
 
-## Running end-to-end tests
+## CI
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Pushes and pull requests run the GitHub Actions workflow in `.github/workflows/ci.yml` (install → production build → headless unit tests).
 
 ## Further help
 
