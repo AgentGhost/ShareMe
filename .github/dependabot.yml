@@ -28,6 +28,9 @@ updates:
       # Ignore TypeScript major version bumps
       - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
+      # Ignore Node typings majors (must match the Node version CI runs)
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
 
   # Enable version updates for GitHub Actions
   - package-ecosystem: "github-actions"
