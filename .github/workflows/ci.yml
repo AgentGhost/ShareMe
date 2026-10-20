@@ -30,7 +30,7 @@ jobs:
         run: npm run build -- --configuration production --base-href /ShareMe/
 
       - name: Unit tests
-        run: npm test -- --browsers ChromeHeadlessCI
+        run: npm test
 
       - name: Upload Pages artifact
         if: github.event_name == 'push'
