@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core"
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core"
 import { CommonModule } from "@angular/common"
 import { DragulaModule, DragulaService } from "ng2-dragula"
 
@@ -13,15 +13,16 @@ import { ListItem, SongService } from "src/app/song.service"
     imports: [CommonModule, DragulaModule]
 })
 export class SongsComponent {
+  private songService = inject(SongService);
+  private favoriteService = inject(FavoriteService);
+
 
   readonly songs = this.songService.songs.changes
   readonly favorites = this.favoriteService.favorites.changes
 
-  constructor(
-    dragulaService: DragulaService,
-    private songService: SongService,
-    private favoriteService: FavoriteService,
-  ) {
+  constructor() {
+    const dragulaService = inject(DragulaService);
+
     dragulaService.createGroup("SONGS", {})
 
     /** prevent scrolling on mobile */

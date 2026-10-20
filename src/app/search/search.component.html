@@ -13,30 +13,34 @@
   (blur)="editing = false"
   [formControl]="input"
   #inputElement
->
-
-<ng-container *ngIf="suggestionChanges | async as suggestions">
-<ng-container *ngIf="favoriteChanges | async as favorites">
-
-<div
-  *ngIf="inputElement.value"
-  class="button clear"
-  (click)="clear()"
->
-  <i class="material-icons">clear</i>
-</div>
-
-<div class="suggestions" *ngIf="editing && suggestions.length > 0">
-  <div
-    *ngFor="let song of suggestions; index as i; trackBy: trackSuggestion"
-    class="suggestion"
-    [class.highlighted]="highlightedSuggestion === i"
-    [class.favorite]="favorites[song.fulltextSearch || '']"
-    (mousedown)="addSong(song)"
   >
-    {{ song.book }} {{ song.number }} – {{ song.name }}
-  </div>
-</div>
 
-</ng-container>
-</ng-container>
+  @if (suggestionChanges | async; as suggestions) {
+    @if (favoriteChanges | async; as favorites) {
+      @if (inputElement.value) {
+        <div
+          class="button clear"
+          role="button"
+          tabindex="0"
+          (click)="clear()"
+          (key.enter)="clear()"
+          >
+          <i class="material-icons">clear</i>
+        </div>
+      }
+      @if (editing && suggestions.length > 0) {
+        <div class="suggestions">
+          @for (song of suggestions; track trackSuggestion(i, song); let i = $index) {
+            <div
+              class="suggestion"
+              [class.highlighted]="highlightedSuggestion === i"
+              [class.favorite]="favorites[song.fulltextSearch || '']"
+              (mousedown)="addSong(song)"
+              >
+              {{ song.book }} {{ song.number }} – {{ song.name }}
+            </div>
+          }
+        </div>
+      }
+    }
+  }

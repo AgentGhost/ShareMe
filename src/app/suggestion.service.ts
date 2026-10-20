@@ -7,7 +7,7 @@ const normalize = (input: string): string => {
   return input
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/\u0300-\u036f]/gi, "")
+    .replace(/[\u0300-\u036f`~!@#$%^&*()_|+\-=?;:'",.<>{}[\]\\/]/gi, "")
     .replace(/\s+/gi, " ")
     .trim()
 }
@@ -38,7 +38,7 @@ const allSuggestions: ListItem[] = Array.prototype.concat(...listOfSongLists as 
 })
 export class SuggestionService {
 
-  getSuggestions(input: string): ListItem[] {
+  getSuggestions(input: string | null): ListItem[] {
     const normalizedInput = normalize(input || "")
 
     if (!normalizedInput) {

@@ -1,6 +1,6 @@
 import { ReplaySubject } from "rxjs"
 
-export class State<T = any> {
+export class State<T> {
 
   private readonly subject = new ReplaySubject<T>(1)
   private _value!: T

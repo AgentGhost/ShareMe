@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common"
-import { ChangeDetectionStrategy, Component } from "@angular/core"
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core"
 
 import { SongService } from "src/app/song.service"
 
@@ -13,14 +13,12 @@ import { copyToClipboard } from "./copyToClipboard"
     imports: [CommonModule]
 })
 export class ButtonsComponent {
+  private songService = inject(SongService);
+
 
   readonly isCopySupported = document.queryCommandSupported && document.queryCommandSupported("copy")
   readonly isShareSupported = !!navigator["share"]
   readonly songs = this.songService.songs.changes
-
-  constructor(
-    private songService: SongService,
-  ) { }
 
   songlistToString() {
     const text = this.songService.songs.value

@@ -14,7 +14,7 @@ describe("SuggestionService", () => {
   it("should return empty array for empty input or whitespace", () => {
     expect(service.getSuggestions("")).toEqual([])
     expect(service.getSuggestions("   ")).toEqual([])
-    expect(service.getSuggestions(null as any)).toEqual([])
+    expect(service.getSuggestions(null)).toEqual([])
   })
 
   it("should search by qualifier prefix", () => {

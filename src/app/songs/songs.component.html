@@ -1,26 +1,34 @@
-<ng-container *ngIf="favorites | async as favorites">
-<ng-container *ngIf="songs | async as songs">
-
-<div dragula="SONGS" [dragulaModel]="songs" (dragulaModelChange)="updateOrder($event)">
-  <div *ngFor="let song of songs; index as i" class="gu song" [class.--active]="song.active" (pointerdown)="song.active = true"
-    (window:pointerup)="song.active = false">
-    <div class="button remove" (click)="remove(i)">
-      <i class="material-icons">clear</i>
+@if (favorites | async; as favorites) {
+  @if (songs | async; as songs) {
+    <div dragula="SONGS" [dragulaModel]="songs" (dragulaModelChange)="updateOrder($event)">
+      @for (song of songs; track song; let i = $index) {
+        <div class="gu song" [class.--active]="song.active" (pointerdown)="song.active = true"
+          (window:pointerup)="song.active = false">
+          <div class="button remove" role="button" tabindex="0" (click)="remove(i)" (key.enter)="remove(i)">
+            <i class="material-icons">clear</i>
+          </div>
+          <div class="name">
+            @if (!song.ccli) {
+              <span>
+                {{ song.book }} {{ song.number }} – {{ song.name }}
+              </span>
+            }
+            @if (song.ccli) {
+              <a [attr.href]="'https://songselect.ccli.com/Songs/'+song.ccli" target="_blank" rel="noopener">
+                {{ song.book }} {{ song.number }} – {{ song.name }}
+              </a>
+            }
+          </div>
+          <div class="button favorite" role="button" tabindex="0" (click)="favorite(song)" (key.enter)="favorite(song)">
+            @if (!favorites[song.fulltextSearch || '']) {
+              <i class="material-icons">favorite_outline</i>
+            }
+            @if (favorites[song.fulltextSearch || '']) {
+              <i class="material-icons">favorite</i>
+            }
+          </div>
+        </div>
+      }
     </div>
-    <div class="name">
-      <span *ngIf="!song.ccli">
-        {{ song.book }} {{ song.number }} – {{ song.name }}
-      </span>
-      <a *ngIf="song.ccli" [attr.href]="'https://songselect.ccli.com/Songs/'+song.ccli" target="_blank" rel="noopener">
-        {{ song.book }} {{ song.number }} – {{ song.name }}
-      </a>
-    </div>
-    <div class="button favorite" (click)="favorite(song)">
-      <i *ngIf="!favorites[song.fulltextSearch || '']" class="material-icons">favorite_outline</i>
-      <i *ngIf="favorites[song.fulltextSearch || '']" class="material-icons">favorite</i>
-    </div>
-  </div>
-</div>
-
-</ng-container>
-</ng-container>
+  }
+}

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core"
+import { AfterViewInit, Component, ElementRef, ViewChild, inject } from "@angular/core"
 import { FormControl, ReactiveFormsModule } from "@angular/forms"
 import { CommonModule } from "@angular/common"
 
@@ -21,6 +21,10 @@ const scrollOptions = {
     imports: [CommonModule, ReactiveFormsModule]
 })
 export class SearchComponent implements AfterViewInit {
+  private favoriteService = inject(FavoriteService);
+  private songService = inject(SongService);
+  private suggestionsService = inject(SuggestionService);
+
 
   @ViewChild("inputElement") inputElement!: ElementRef
 
@@ -36,12 +40,6 @@ export class SearchComponent implements AfterViewInit {
   suggestions: ListItem[] = []
   highlightedSuggestion = 0
   editing = false
-
-  constructor(
-    private favoriteService: FavoriteService,
-    private songService: SongService,
-    private suggestionsService: SuggestionService,
-  ) { }
 
   ngAfterViewInit() {
     this.clear()
@@ -77,7 +75,7 @@ export class SearchComponent implements AfterViewInit {
 
   updateScroll = () => {
     const selector = `.suggestion:nth-of-type(${this.highlightedSuggestion + 1})`
-    const el: any = document.querySelector(selector)
+    const el = document.querySelector<HTMLElement>(selector)
 
     if (el) {
       scrollIntoViewIfNeeded(el, scrollOptions)

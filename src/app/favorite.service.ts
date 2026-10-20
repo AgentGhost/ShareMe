@@ -5,7 +5,7 @@ import { State } from "src/app/State"
 import { ListItem } from "./song.service"
 
 interface Favorites {
-  [index: string]: any
+  [index: string]: number
 }
 
 @Injectable({
