@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild, inject } from "@angular/core"
+import { AfterViewInit, Component, ElementRef, ViewChild, inject, ChangeDetectionStrategy } from "@angular/core"
 import { FormControl, ReactiveFormsModule } from "@angular/forms"
 import { CommonModule } from "@angular/common"
 
@@ -18,6 +18,8 @@ const scrollOptions = {
     selector: "app-search",
     templateUrl: "./search.component.html",
     styleUrls: ["./search.component.scss", "./suggestions.scss"],
+    // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection -- Eager is what the v22 migration chose to preserve the pre-v22 default CD behavior; this component mutates state from subscriptions
+    changeDetection: ChangeDetectionStrategy.Eager,
     imports: [CommonModule, ReactiveFormsModule]
 })
 export class SearchComponent implements AfterViewInit {

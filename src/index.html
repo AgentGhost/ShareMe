@@ -9,6 +9,10 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#708090">
+  <script>
+    // Some legacy dependencies expect Node's `global`; alias it before any bundle loads.
+    window.global = window
+  </script>
 </head>
 <body>
   <app-root></app-root>

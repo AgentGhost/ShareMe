@@ -27,7 +27,7 @@ describe("SuggestionService", () => {
   it("should perform fulltext search when no qualifier match is found", () => {
     const results = service.getSuggestions("danken")
     expect(results.length).toBeGreaterThan(0)
-    expect(results.every(s => s.fulltextSearch?.includes("danken"))).toBeTrue()
+    expect(results.every(s => s.fulltextSearch?.includes("danken"))).toBe(true)
   })
 
   it("should handle multiple words in fulltext search", () => {

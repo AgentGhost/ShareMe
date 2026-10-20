@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Logo" src="https://github.com/AgentGhost/ShareMe/blob/master/src/assets/icons/icon.png" height="48">
+  <img alt="Logo" src="https://raw.githubusercontent.com/AgentGhost/ShareMe/master/src/assets/icons/icon.png" height="48">
   ShareMe
 </h1>
 
@@ -36,7 +36,7 @@
 
 # Devs
 
-This project uses [Angular CLI](https://github.com/angular/angular-cli) (currently Angular 19).
+This project uses [Angular CLI](https://github.com/angular/angular-cli) (currently Angular 22).
 
 ## Development server
 
@@ -52,7 +52,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io). On Windows, Chrome is auto-detected; set `CHROME_BIN` to override.
+Run `ng test` to execute the unit tests via [Vitest](https://vitest.dev) (Angular's unit-test builder). Tests run in Node.js with jsdom, so no browser is required.
 
 ## CI
 
