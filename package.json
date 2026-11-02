@@ -17,7 +17,7 @@
     "@angular/forms": "^22.2.3",
     "@angular/platform-browser": "^22.2.3",
     "@angular/platform-browser-dynamic": "^22.2.3",
-    "@angular/router": "^22.2.3",
+    "@angular/router": "^22.2.4",
     "@angular/service-worker": "^22.2.3",
     "dragula": "^3.7.3",
     "ng2-dragula": "^9.0.0",
